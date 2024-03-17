@@ -1,0 +1,13 @@
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\bin\Debug\Aula3PI.exe.config
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\bin\Debug\Aula3PI.exe
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\bin\Debug\Aula3PI.pdb
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\bin\Debug\MagicTrickServer.dll
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\bin\Debug\MagicTrickServer.xml
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\MadridLobbyPI.csproj.AssemblyReference.cache
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\Aula3PI.Properties.Resources.resources
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\MadridLobbyPI.csproj.GenerateResource.cache
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\MadridLobbyPI.csproj.CoreCompileInputs.cache
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\MadridLobbyPI.csproj.CopyComplete
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\Aula3PI.exe
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\Aula3PI.pdb
+C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\Aula3PI.frmLobby.resources
