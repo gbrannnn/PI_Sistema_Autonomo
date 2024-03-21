@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 using MagicTrickServer;
 
@@ -27,7 +28,17 @@ namespace Aula3PI
             cboStatusPartida.SelectedIndex = 0;
         }
 
-        private void btnListarPartidas_Click(object sender, EventArgs e)
+        private string[] tratarRetornoDoBanco(string valorRetornado)
+        {
+            string[] valorTratado = valorRetornado
+                                                .Replace("\r", "")
+                                                .Substring(0, valorRetornado.Length - 1)
+                                                .Split('\n');
+
+            return valorTratado;
+		}
+
+		private void btnListarPartidas_Click(object sender, EventArgs e)
         {
             string retornoPartida = null;
 
@@ -54,11 +65,10 @@ namespace Aula3PI
                 }
             }
 
-            retornoPartida = retornoPartida.Replace("\r", "");
-            retornoPartida = retornoPartida.Substring(0, retornoPartida.Length - 1);
-            string[] partidas = retornoPartida.Split('\n');
+            string[] partidas = tratarRetornoDoBanco(retornoPartida);
 
-            lstPartidas.Items.Clear();
+
+			lstPartidas.Items.Clear();
             for (int i = 0; i < partidas.Length - 1; i++)
             {
                 lstPartidas.Items.Add(partidas[i]);
@@ -134,11 +144,10 @@ namespace Aula3PI
                 return;
             }
 
-            retornoJogador = retornoJogador.Replace("\r", "");
-            retornoJogador = retornoJogador.Substring(0, retornoJogador.Length - 1);
-            string[] jogador = retornoJogador.Split('\n');
+            string[] jogador = tratarRetornoDoBanco(retornoJogador);
 
-            lstJogadores.Items.Clear();
+
+			lstJogadores.Items.Clear();
             for (int i = 0;i < jogador.Length;i++)
             {
                 lstJogadores.Items.Add(jogador[i]);

@@ -11,3 +11,16 @@ C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\MadridLobbyPI.csproj.CopyC
 C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\Aula3PI.exe
 C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\Aula3PI.pdb
 C:\Users\bilol\source\repos\Aula3PI\Aula3PI\obj\Debug\Aula3PI.frmLobby.resources
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\obj\Debug\MadridLobbyPI.csproj.AssemblyReference.cache
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\obj\Debug\Aula3PI.frmLobby.resources
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\obj\Debug\Aula3PI.Properties.Resources.resources
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\obj\Debug\MadridLobbyPI.csproj.GenerateResource.cache
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\obj\Debug\MadridLobbyPI.csproj.CoreCompileInputs.cache
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\obj\Debug\Aula3PI.exe
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\obj\Debug\Aula3PI.pdb
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\bin\Debug\Aula3PI.exe.config
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\bin\Debug\Aula3PI.exe
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\bin\Debug\Aula3PI.pdb
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\bin\Debug\MagicTrickServer.dll
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\bin\Debug\MagicTrickServer.xml
+C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\PI_Madrid\obj\Debug\MadridLo.1B995410.Up2Date
