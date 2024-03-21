@@ -18,6 +18,7 @@ namespace Aula3PI
             InitializeComponent();
 
             lblVersaoDLL.Text = "Versão: " + Jogo.Versao;
+            txtGrupo.Text = "Madrid";
 
             cboStatusPartida.Items.Add("Todas");
             cboStatusPartida.Items.Add("Aberto");
@@ -71,9 +72,19 @@ namespace Aula3PI
             string senhaPartida = txtSenha.Text;
             string nomeGrupo = txtGrupo.Text;
 
+            if (nomePartida.Contains(",") == true)
+            {
+                MessageBox.Show("Ocorreu um erro:\n"
+                    + "Nome de partida não pode ter virgula",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
             string retornoCiracaoPartida = Jogo.CriarPartida(nomePartida, senhaPartida, nomeGrupo);
 
-            if (retornoCiracaoPartida.Substring(0, 4) == "ERRO")
+            if (retornoCiracaoPartida.Substring(0,1) == "E")
             {
                 MessageBox.Show("Ocorreu um erro:\n"
                     + retornoCiracaoPartida.Substring(5),
@@ -86,20 +97,19 @@ namespace Aula3PI
             lblTesteCriacao.Text = retornoCiracaoPartida;
         }
 
+
         private void btnListarJogadores_Click(object sender, EventArgs e)
         {
+            int idPartida;
             if(txtIdPartida.Text == "")
             {
-                MessageBox.Show("Aviso! \n" +
-                    "preencha o campo 'id da Partida',\n" +
-                    "para que possa listar os jogadores",
-                    "Aviso", 
-                    MessageBoxButtons.OK, 
-                    MessageBoxIcon.Information);
-                return;
+                idPartida = 0;
+            }
+            else
+            {
+                idPartida = Convert.ToInt32(txtIdPartida.Text);
             }
 
-            int idPartida = Convert.ToInt32(txtIdPartida.Text);
             string retornoJogador = Jogo.ListarJogadores(idPartida);
 
             if(retornoJogador == "")
@@ -136,5 +146,62 @@ namespace Aula3PI
      
         }
 
+        private void btnEntrarPartida_Click(object sender, EventArgs e)
+        {
+            int idPartidaEntrar;
+            if (txtIdPartidaEntrar.Text == "")
+            {
+                idPartidaEntrar = 0;
+            }
+            else
+            {
+                idPartidaEntrar = Convert.ToInt32(txtIdPartidaEntrar.Text);
+            }
+            string retornoEntrarPartida = Jogo.EntrarPartida(idPartidaEntrar, txtNomeJogador.Text, txtSenhaPartida.Text);
+
+            if (retornoEntrarPartida.Substring(0, 4) == "ERRO")
+            {
+                MessageBox.Show("Ocorreu um erro:\n"
+                    + retornoEntrarPartida.Substring(5),
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            lblIdSenhaJogador.Text = retornoEntrarPartida;
+
+            string[] informacaoJogador = retornoEntrarPartida.Split(',');
+
+            txtIdJogador.Text = informacaoJogador[0];
+            txtSenhaJogador.Text = informacaoJogador[1];
+        }
+
+        private void btnIniciarPartida_Click(object sender, EventArgs e)
+        {
+            int idJogador;
+            if (txtIdJogador.Text == "")
+            {
+                idJogador = 0;
+            }
+            else
+            {
+                idJogador = Convert.ToInt32(txtIdJogador.Text);
+            }
+
+            string retornoIniciarPartida = Jogo.IniciarPartida(idJogador, txtSenhaJogador.Text);
+
+            if (retornoIniciarPartida.Substring(0, 1) == "E")
+            {
+                MessageBox.Show("Ocorreu um erro:\n"
+                    + retornoIniciarPartida.Substring(5),
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            txtJogadorVez.Text = retornoIniciarPartida;
+        }
     }
 }
