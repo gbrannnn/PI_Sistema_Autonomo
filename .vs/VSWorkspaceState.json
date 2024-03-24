@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\PI_Madrid"
+    "\\PI_Madrid",
+    "\\PI_Madrid\\bin",
+    "\\PI_Madrid\\bin\\Debug",
+    "\\PI_Madrid\\Properties"
   ],
   "SelectedNode": "\\PI_Madrid\\Form1.cs",
   "PreviewInSolutionExplorer": false

@@ -30,12 +30,8 @@ namespace Aula3PI
 
         private string[] tratarRetornoDoBanco(string valorRetornado)
         {
-            string[] valorTratado = valorRetornado
-                                                .Replace("\r", "")
-                                                .Substring(0, valorRetornado.Length - 1)
-                                                .Split('\n');
-
-            return valorTratado;
+            string valorTratado = valorRetornado.Replace("\r", "");
+            return valorTratado.Substring(0, valorTratado.Length - 1).Split('\n');
 		}
 
 		private void btnListarPartidas_Click(object sender, EventArgs e)
