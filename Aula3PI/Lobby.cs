@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
 using MagicTrickServer;
+using utils;
 
 namespace Aula3PI
 {
@@ -29,15 +30,6 @@ namespace Aula3PI
             cboStatusPartida.Items.Add("Encerrado");
             cboStatusPartida.SelectedIndex = 0;
         }
-
-        private string[] tratarRetornoDoBanco(string valorRetornado)
-        {
-            valorRetornado = valorRetornado.Replace("\r", "");
-            valorRetornado = valorRetornado.Substring(0, valorRetornado.Length - 1);
-            string[] valorTratado = valorRetornado.Split('\n');
-
-            return valorTratado;
-		}
 
 		private void btnListarPartidas_Click(object sender, EventArgs e)
         {
@@ -66,7 +58,7 @@ namespace Aula3PI
                 }
             }
 
-            string[] partidas = tratarRetornoDoBanco(partida);
+            string[] partidas = Utils.tratarRetornoDoBanco(partida);
 
 			lstPartidas.Items.Clear();
             for (int i = 0; i < partidas.Length - 1; i++)
@@ -144,7 +136,7 @@ namespace Aula3PI
                 return;
             }
 
-            string[] jogadores = tratarRetornoDoBanco(jogador);
+            string[] jogadores = Utils.tratarRetornoDoBanco(jogador);
 
 
 			lstJogadores.Items.Clear();
@@ -204,7 +196,7 @@ namespace Aula3PI
             }
 
             string iniciarPartida = Jogo.IniciarPartida(idJogador, txtSenhaJogador.Text);
-            string[] jogadores = tratarRetornoDoBanco(Jogo.ListarJogadores(idPartida));
+            string[] jogadores = Utils.tratarRetornoDoBanco(Jogo.ListarJogadores(idPartida));
             string[] informacaoJogador = null;
 
             for (int i = 0; i < jogadores.Length; i++)
@@ -229,6 +221,15 @@ namespace Aula3PI
             telaJogo.atualizarTela();
             telaJogo.ShowDialog();
 
+        }
+
+        private void irParaJogoDebug_Click_1(object sender, EventArgs e)
+        {
+            TelaJogo telaJogo = new TelaJogo();
+            telaJogo.IniciarPartida = "";
+            telaJogo.modoDebug = true;
+            telaJogo.atualizarTela();
+            telaJogo.ShowDialog();
         }
     }
 }

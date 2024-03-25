@@ -61,6 +61,7 @@
             this.lblIdJogador = new System.Windows.Forms.Label();
             this.btnIniciarPartida = new System.Windows.Forms.Button();
             this.txtJogadorVez = new System.Windows.Forms.TextBox();
+            this.irParaJogoDebug = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnListarPartidas
@@ -398,12 +399,27 @@
             this.txtJogadorVez.Size = new System.Drawing.Size(69, 20);
             this.txtJogadorVez.TabIndex = 41;
             // 
+            // irParaJogoDebug
+            // 
+            this.irParaJogoDebug.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.irParaJogoDebug.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.irParaJogoDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.irParaJogoDebug.ForeColor = System.Drawing.SystemColors.Control;
+            this.irParaJogoDebug.Location = new System.Drawing.Point(469, 429);
+            this.irParaJogoDebug.Name = "irParaJogoDebug";
+            this.irParaJogoDebug.Size = new System.Drawing.Size(182, 20);
+            this.irParaJogoDebug.TabIndex = 42;
+            this.irParaJogoDebug.Text = "ir para jogo ( DEBUG )";
+            this.irParaJogoDebug.UseVisualStyleBackColor = false;
+            this.irParaJogoDebug.Click += new System.EventHandler(this.irParaJogoDebug_Click_1);
+            // 
             // frmLobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(834, 511);
+            this.Controls.Add(this.irParaJogoDebug);
             this.Controls.Add(this.txtJogadorVez);
             this.Controls.Add(this.btnIniciarPartida);
             this.Controls.Add(this.lblSenhaJogador);
@@ -480,6 +496,7 @@
         private System.Windows.Forms.Label lblIdJogador;
         private System.Windows.Forms.Button btnIniciarPartida;
         private System.Windows.Forms.TextBox txtJogadorVez;
+        private System.Windows.Forms.Button irParaJogoDebug;
     }
 }
 

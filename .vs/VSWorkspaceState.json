@@ -1,15 +1,8 @@
 {
   "ExpandedNodes": [
-<<<<<<< Updated upstream
     "",
-    "\\PI_Madrid",
-    "\\PI_Madrid\\bin",
-    "\\PI_Madrid\\bin\\Debug",
-    "\\PI_Madrid\\Properties"
-=======
-    ""
->>>>>>> Stashed changes
+    "\\Aula3PI"
   ],
-  "SelectedNode": "\\MadridLobbyPI.sln",
+  "SelectedNode": "\\Aula3PI\\TelaJogo.cs",
   "PreviewInSolutionExplorer": false
 }

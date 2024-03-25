@@ -1,12 +1,102 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|c:\\users\\gustavo alves vieira\\source\\repos\\pi_sistema_autonomo2\\aula3pi\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|c:\\users\\gustavo alves vieira\\source\\repos\\pi_sistema_autonomo2\\aula3pi\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\aula3pi\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\aula3pi\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\aula3pi\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TelaJogo.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\TelaJogo.cs",
+              "RelativeDocumentMoniker": "Aula3PI\\TelaJogo.cs",
+              "ToolTip": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\TelaJogo.cs [Design]",
+              "RelativeToolTip": "Aula3PI\\TelaJogo.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-25T02:54:57.224Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Class1.cs",
+              "RelativeDocumentMoniker": "Aula3PI\\Class1.cs",
+              "ToolTip": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Class1.cs",
+              "RelativeToolTip": "Aula3PI\\Class1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-25T01:38:40.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Lobby.cs",
+              "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Lobby.cs",
+              "RelativeDocumentMoniker": "Aula3PI\\Lobby.cs",
+              "ToolTip": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Lobby.cs",
+              "RelativeToolTip": "Aula3PI\\Lobby.cs",
+              "ViewState": "AQIAAMMAAAAAAAAAAAAmwOEAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-25T01:04:07.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TelaJogo.cs",
+              "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\TelaJogo.cs",
+              "RelativeDocumentMoniker": "Aula3PI\\TelaJogo.cs",
+              "ToolTip": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\TelaJogo.cs",
+              "RelativeToolTip": "Aula3PI\\TelaJogo.cs",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAEwGcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-25T01:00:32.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Lobby.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Lobby.cs",
+              "RelativeDocumentMoniker": "Aula3PI\\Lobby.cs",
+              "ToolTip": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Lobby.cs [Design]",
+              "RelativeToolTip": "Aula3PI\\Lobby.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-25T00:58:34.755Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
