@@ -15,6 +15,7 @@ namespace utils
             string[] valorTratado = valorRetornado.Split('\n');
 
             return valorTratado;
+            //cuzin
         }
 
 
