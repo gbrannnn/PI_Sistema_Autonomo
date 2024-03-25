@@ -25,13 +25,18 @@ namespace Aula3PI
 
     public partial class TelaJogo : Form
     {
-        public string IniciarPartida { get; set; }
+        public int IdPartida { get; set; } 
+        public string IdJogador { get; set; }
+        public string SenhaJogador { get; set; }
+        public string IdJogadorSorteado { get; set; }
+        public string NomeJogador { get; set; }
+
 
 
         // Variaveis para debug
-        private string DebugidPartida = "2557";
-        private int[] DebugidJogadores = {3032, 3033};
-        private string SenhaJogador3032 = "BCB2F0";
+        // private string DebugidPartida = "2557";
+        //private int[] DebugidJogadores = {3032, 3033};
+        //private string SenhaJogador3032 = "BCB2F0";
         public bool modoDebug = false;
 
         public TelaJogo()
@@ -41,7 +46,9 @@ namespace Aula3PI
         
         public void atualizarTela()
         {
-            label1.Text = IniciarPartida ?? DebugidPartida;
+            lblTest.Text = IdJogadorSorteado + " " + NomeJogador;
+            label1.Text = IdJogador;
+            label2.Text = SenhaJogador; 
         }
 
         private void btnSairPartida_Click(object sender, EventArgs e)
@@ -57,10 +64,12 @@ namespace Aula3PI
             }
         }
 
-        private void lstCartasBtn_Click(object sender, EventArgs e)
+        private void bntListarCartas_Click(object sender, EventArgs e)
         {
+            lstCartasBoxListJogador1.Items.Clear();
+            lstCartasBoxListJogador2.Items.Clear();
 
-            string[] maoJogadores = Utils.tratarRetornoDoBanco(Jogo.ConsultarMao(Convert.ToInt32(DebugidPartida)));
+            string[] maoJogadores = Utils.tratarRetornoDoBanco(Jogo.ConsultarMao(Convert.ToInt32(IdPartida)));
 
             List<string> maoJogadorUm = new List<string>();
             List<string> maoJogadorDois = new List<string>();
@@ -71,10 +80,13 @@ namespace Aula3PI
             Jogador jogadorAtual = Jogador.JOGADOR_1;
             for (int i = 1; i <= maoJogadores.Length; i++)
             {
-
+                if (i % 12 == 0)
+                {
+                    jogadorAtual++;
+                }
                 switch (jogadorAtual)
                 {
-                    case Jogador.JOGADOR_1: 
+                    case Jogador.JOGADOR_1:
                         maoJogadorUm.Add(maoJogadores[i - 1]);
                         lstCartasBoxListJogador1.Items.Add(maoJogadores[i - 1]);
                         break;
@@ -89,23 +101,19 @@ namespace Aula3PI
                         maoJogadorQuatro.Add(maoJogadores[i]);
                         break;
                 }
-                if (i % 12 == 0)
-                {
-                    jogadorAtual++;
-                }
             }
         }
 
-        private void jogar_Click(object sender, EventArgs e)
+        private void btnJogar_Click(object sender, EventArgs e)
         {
-            string x = Jogo.Jogar(3032, this.SenhaJogador3032, 4);
-            variavelPraDebug.Text = x;
+            string valorCarta = Jogo.Jogar(Convert.ToInt32(IdJogador), SenhaJogador, Convert.ToInt32(txtIdCarta.Text));
+            lblCartaJogada.Text = valorCarta;
         }
 
-        private void apostar_Click(object sender, EventArgs e)
+        private void btnApostar_Click(object sender, EventArgs e)
         {
-            string x = Jogo.Apostar(3032, this.SenhaJogador3032, 0);
-            label4.Text = x;
+            string valorAposta = Jogo.Apostar(Convert.ToInt32(IdJogador), SenhaJogador, Convert.ToInt32(txtIdAposta.Text));
+            lblCartaAposta.Text = valorAposta;
         }
     }
 }

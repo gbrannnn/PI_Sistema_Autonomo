@@ -84,19 +84,19 @@ namespace Aula3PI
                 return;
             }
 
-            string criacaoPartida = Jogo.CriarPartida(nomePartida, senhaPartida, nomeGrupo);
+            string partida = Jogo.CriarPartida(nomePartida, senhaPartida, nomeGrupo);
 
-            if (criacaoPartida.Substring(0,1) == "E")
+            if (partida.Substring(0,1) == "E")
             {
                 MessageBox.Show("Ocorreu um erro:\n"
-                    + criacaoPartida.Substring(5),
+                    + partida.Substring(5),
                     "Aviso",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
 
-            lblTesteCriacao.Text = criacaoPartida;
+            lblTesteCriacao.Text = partida;
         }
 
 
@@ -149,16 +149,17 @@ namespace Aula3PI
 
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
-            int idPartidaEntrar;
+
+            int idPartida;
             if (txtIdPartidaEntrar.Text == "")
             {
-                idPartidaEntrar = 0;
+                idPartida = 0;
             }
             else
             {
-                idPartidaEntrar = Convert.ToInt32(txtIdPartidaEntrar.Text);
+                idPartida = Convert.ToInt32(txtIdPartidaEntrar.Text);
             }
-            string entrarPartida = Jogo.EntrarPartida(idPartidaEntrar, txtNomeJogador.Text, txtSenhaPartida.Text);
+            string entrarPartida = Jogo.EntrarPartida(idPartida, txtNomeJogador.Text, txtSenhaPartida.Text);
 
             if (entrarPartida.Substring(0, 4) == "ERRO")
             {
@@ -169,8 +170,6 @@ namespace Aula3PI
                     MessageBoxIcon.Error);
                 return;
             }
-
-            lblIdSenhaJogador.Text = entrarPartida;
 
             string[] informacaoJogador = entrarPartida.Split(',');
 
@@ -195,29 +194,33 @@ namespace Aula3PI
                 idPartida = Convert.ToInt32(txtIdPartidaEntrar.Text);
             }
 
-            string iniciarPartida = Jogo.IniciarPartida(idJogador, txtSenhaJogador.Text);
+            string idJogadorSorteado = Jogo.IniciarPartida(idJogador, txtSenhaJogador.Text);
             string[] jogadores = Utils.tratarRetornoDoBanco(Jogo.ListarJogadores(idPartida));
-            string[] informacaoJogador = null;
+            string[] jogador = null;
 
             for (int i = 0; i < jogadores.Length; i++)
             {
-                if (jogadores[i].Contains(iniciarPartida))
+                if (jogadores[i].Contains(idJogadorSorteado))
                 {
-                    informacaoJogador = jogadores[i].Split(',');
+                    jogador = jogadores[i].Split(',');
                 }
             }
 
-            if (iniciarPartida.Substring(0, 1) == "E")
+            if (idJogadorSorteado.Substring(0, 1) == "E")
             {
                 MessageBox.Show("Ocorreu um erro:\n"
-                    + iniciarPartida.Substring(5),
+                    + idJogadorSorteado.Substring(5),
                     "Aviso",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
 
-            telaJogo.IniciarPartida = iniciarPartida + " " + informacaoJogador[1];
+            telaJogo.IdJogador = txtIdJogador.Text;
+            telaJogo.SenhaJogador = txtSenhaJogador.Text;
+            telaJogo.IdJogadorSorteado = idJogadorSorteado; 
+            telaJogo.NomeJogador = jogador[1];
+            telaJogo.IdPartida = idPartida;
             telaJogo.atualizarTela();
             telaJogo.ShowDialog();
 
@@ -225,11 +228,15 @@ namespace Aula3PI
 
         private void irParaJogoDebug_Click_1(object sender, EventArgs e)
         {
+
             TelaJogo telaJogo = new TelaJogo();
-            telaJogo.IniciarPartida = "";
+            telaJogo.IdPartida = Convert.ToInt32(txtIdPartidaEntrar.Text);
+            telaJogo.IdJogador = txtIdJogador.Text;
+            telaJogo.SenhaJogador = txtSenhaJogador.Text;
             telaJogo.modoDebug = true;
             telaJogo.atualizarTela();
             telaJogo.ShowDialog();
+            
         }
     }
 }
