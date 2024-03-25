@@ -204,6 +204,8 @@ $RECYCLE.BIN/
 *.msp
 *.vsidx
 
+bin\Debug
+obj\Debug
 .vs\MadridLobbyPI
 .vs\MadridLobbyPI\FileContentIndex
 .vs\MadridLobbyPI\v17
