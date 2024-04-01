@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cartas.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Lobby.cs">
       <SubType>Form</SubType>
@@ -95,6 +97,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MagicTrickLogo-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Copas1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Espadas1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Estrela1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Lua1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Ouros1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Paus1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Triângulo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
