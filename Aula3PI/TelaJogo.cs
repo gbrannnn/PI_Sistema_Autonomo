@@ -95,12 +95,12 @@ namespace Aula3PI
             for(int i = 0; i < DebugJogadores.Length; i++)
             {
                 string[] aux = DebugJogadores[i].Split(',');
-                jogadores.Add("Jogador" + i + 1, aux);
+                jogadores.Add("jogador" + (i + 1), aux);
             }
 
             
-            string idJogadorUm = jogadores[0];
-            string idJogadorDois = jogadores[3];
+            string idJogadorUm = jogadores["jogador1"][0];
+            string idJogadorDois = jogadores["jogador2"][0];
 
             for(int i = 0; i < maoJogadores.Length; i++)
             {

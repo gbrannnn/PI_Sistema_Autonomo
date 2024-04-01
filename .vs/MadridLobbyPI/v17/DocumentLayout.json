@@ -7,7 +7,15 @@
       "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|c:\\users\\gustavo alves vieira\\source\\repos\\pi_sistema_autonomo2\\aula3pi\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|c:\\users\\gustavo alves vieira\\source\\repos\\pi_sistema_autonomo2\\aula3pi\\cartas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\cartas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|c:\\users\\gustavo alves vieira\\source\\repos\\pi_sistema_autonomo2\\aula3pi\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\aula3pi\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\telajogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -15,12 +23,12 @@
       "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\aula3pi\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|c:\\users\\gustavo alves vieira\\source\\repos\\pi_sistema_autonomo2\\aula3pi\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\aula3pi\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\aula3pi\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53BD210D-C373-431B-8698-4B308B382840}|Aula3PI\\MadridLobbyPI.csproj|solutionrelative:aula3pi\\lobby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +38,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Cartas.cs",
+              "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Cartas.cs",
+              "RelativeDocumentMoniker": "Aula3PI\\Cartas.cs",
+              "ToolTip": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Cartas.cs",
+              "RelativeToolTip": "Aula3PI\\Cartas.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T01:03:22.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\App.config",
+              "RelativeDocumentMoniker": "Aula3PI\\App.config",
+              "ToolTip": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\App.config",
+              "RelativeToolTip": "Aula3PI\\App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-04-01T00:55:21.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Utils.cs",
+              "RelativeDocumentMoniker": "Aula3PI\\Utils.cs",
+              "ToolTip": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Utils.cs",
+              "RelativeToolTip": "Aula3PI\\Utils.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T00:54:32.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "TelaJogo.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\TelaJogo.cs",
               "RelativeDocumentMoniker": "Aula3PI\\TelaJogo.cs",
@@ -46,19 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Class1.cs",
-              "RelativeDocumentMoniker": "Aula3PI\\Class1.cs",
-              "ToolTip": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Class1.cs",
-              "RelativeToolTip": "Aula3PI\\Class1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-25T01:38:40.721Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Lobby.cs",
               "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Lobby.cs",
               "RelativeDocumentMoniker": "Aula3PI\\Lobby.cs",
@@ -77,14 +112,14 @@
               "RelativeDocumentMoniker": "Aula3PI\\TelaJogo.cs",
               "ToolTip": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\TelaJogo.cs",
               "RelativeToolTip": "Aula3PI\\TelaJogo.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAEwGcAAAAAAAAA",
+              "ViewState": "AQIAADkAAAAAAAAAAAAiwFAAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-25T01:00:32.798Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Lobby.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Gustavo Alves Vieira\\source\\repos\\PI_Sistema_Autonomo2\\Aula3PI\\Lobby.cs",
               "RelativeDocumentMoniker": "Aula3PI\\Lobby.cs",
