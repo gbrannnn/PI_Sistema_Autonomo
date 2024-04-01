@@ -74,17 +74,18 @@ namespace Aula3PI
             string senhaPartida = txtSenha.Text;
             string nomeGrupo = txtGrupo.Text;
 
+
+            string partida = Jogo.CriarPartida(nomePartida, senhaPartida, nomeGrupo);
+
             if (nomePartida.Contains(",") == true)
             {
                 MessageBox.Show("Ocorreu um erro:\n"
-                    + "Nome de partida não pode ter virgula",
+                    + partida.Substring(5),
                     "Aviso",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
-
-            string partida = Jogo.CriarPartida(nomePartida, senhaPartida, nomeGrupo);
 
             if (partida.Substring(0,1) == "E")
             {
@@ -96,12 +97,13 @@ namespace Aula3PI
                 return;
             }
 
-            lblTesteCriacao.Text = partida;
+            txtIdPartida.Text = partida;
         }
 
 
         private void btnListarJogadores_Click(object sender, EventArgs e)
         {
+
             int idPartida;
             if(txtIdPartida.Text == "")
             {
@@ -138,13 +140,12 @@ namespace Aula3PI
 
             string[] jogadores = Utils.tratarRetornoDoBanco(jogador);
 
-
 			lstJogadores.Items.Clear();
             for (int i = 0;i < jogadores.Length;i++)
             {
                 lstJogadores.Items.Add(jogadores[i]);
             }
-     
+
         }
 
         private void btnEntrarPartida_Click(object sender, EventArgs e)
@@ -179,8 +180,6 @@ namespace Aula3PI
 
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
-            TelaJogo telaJogo = new TelaJogo();
-
             int idJogador;
             int idPartida;
             if (txtIdJogador.Text == "")
@@ -215,6 +214,8 @@ namespace Aula3PI
                     MessageBoxIcon.Error);
                 return;
             }
+
+            TelaJogo telaJogo = new TelaJogo();
 
             telaJogo.IdJogador = txtIdJogador.Text;
             telaJogo.SenhaJogador = txtSenhaJogador.Text;
