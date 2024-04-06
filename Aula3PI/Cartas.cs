@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,7 +13,7 @@ namespace Aula3PI
 {
     internal class Cartas
     {
-        public static List<Panel> criacaoCarta(string[] maoJogadores)
+        public static List<Panel> criacaoCarta(string[] maoJogador)
         {
             List<Panel> listaCartas = new List<Panel>();
 
@@ -24,7 +25,7 @@ namespace Aula3PI
             size.Width = 60;
             size.Height = 100;
             
-            for (int i = 0; i < maoJogadores.Length/2; i++) {
+            for (int i = 0; i < maoJogador.Length; i++) {
 
                 Panel carta = new Panel();
                 point.X = point.X + (size.Width + 10);
@@ -32,7 +33,7 @@ namespace Aula3PI
                 carta.Size = size;
                 carta.BackgroundImageLayout = ImageLayout.Stretch;
 
-                string naipe = maoJogadores[i].Substring(maoJogadores[i].Length - 1);
+                string naipe = maoJogador[i].Substring(maoJogador[i].Length - 1);
 
                 switch (naipe)
                 {

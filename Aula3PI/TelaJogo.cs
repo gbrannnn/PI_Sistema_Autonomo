@@ -13,8 +13,6 @@ using MagicTrickServer;
 using utils;
 
 namespace Aula3PI
-
-
 {
     enum Jogador
     {
@@ -28,7 +26,7 @@ namespace Aula3PI
     public partial class TelaJogo : Form
     {
         public int IdPartida { get; set; } 
-        //public string[] Jogadores { get; set; }
+        public string[] Jogadores { get; set; }
         public string IdJogador { get; set; }
         public string SenhaJogador { get; set; }
         public string IdJogadorSorteado { get; set; }
@@ -40,7 +38,7 @@ namespace Aula3PI
         // private string DebugidPartida = "2557";
         //private int[] DebugidJogadores = {3032, 3033};
         //private string SenhaJogador3032 = "BCB2F0";
-        private string[] DebugJogadores = { "2258,p1,0", "2259,p2,0" };
+        private string[] DebugJogadores = { "3581,p1,0", "3582,p2,0", "3583,p3,0", "3584,p4,0" };
         public bool modoDebug = false;
 
         public TelaJogo()
@@ -72,47 +70,27 @@ namespace Aula3PI
         {
             lstCartasBoxListJogador1.Items.Clear();
             lstCartasBoxListJogador2.Items.Clear();
-
+            
             string[] maoJogadores = Utils.tratarRetornoDoBanco(Jogo.ConsultarMao(Convert.ToInt32(IdPartida)));
-
-            List<Panel> listaCartas = Cartas.criacaoCarta(maoJogadores);
-
-            foreach(Panel carta in listaCartas)
-            {
-                this.Controls.Add(carta);
-            }
 
             pnlCarta.Tag = maoJogadores[0];
             label3.Text = pnlCarta.Tag.ToString();
 
-            List<string> maoJogadorUm = new List<string>();
-            List<string> maoJogadorDois = new List<string>();
-            List<string> maoJogadorTres = new List<string>();
-            List<string> maoJogadorQuatro = new List<string>();
 
-            Dictionary<string, string[]> jogadores = new Dictionary<string, string[]>();    
+            List<string[]> listaMaoJogadores = MaoJogadores.maoJogadores(maoJogadores, DebugJogadores);
 
+            List<Panel> cartasJogadores = new List<Panel>();
+            
             for(int i = 0; i < DebugJogadores.Length; i++)
             {
-                string[] aux = DebugJogadores[i].Split(',');
-                jogadores.Add("jogador" + (i + 1), aux);
+                cartasJogadores = Cartas.criacaoCarta(listaMaoJogadores[i]);
             }
 
-            
-            string idJogadorUm = jogadores["jogador1"][0];
-            string idJogadorDois = jogadores["jogador2"][0];
-
-            for(int i = 0; i < maoJogadores.Length; i++)
+            for (int i = 0; i < DebugJogadores.Length; i++)
             {
-                if (maoJogadores[i].Contains(idJogadorUm))
+                foreach (Panel carta in cartasJogadores)
                 {
-                    maoJogadorUm.Add(maoJogadores[i]);
-                    lstCartasBoxListJogador1.Items.Add(maoJogadores[i]);
-                }
-                else if (maoJogadores[i].Contains(idJogadorDois))
-                {
-                    maoJogadorDois.Add(maoJogadores[i]);
-                    lstCartasBoxListJogador2.Items.Add(maoJogadores[i]);
+                    this.Controls.Add(carta);
                 }
             }
 

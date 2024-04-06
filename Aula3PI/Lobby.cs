@@ -15,7 +15,6 @@ namespace Aula3PI
 {
     public partial class frmLobby : Form
     {
-        private string IniciarPartida;
 
         public frmLobby()
         {
