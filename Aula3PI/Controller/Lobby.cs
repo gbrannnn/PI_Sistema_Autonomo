@@ -170,31 +170,25 @@ namespace Aula3PI
         {
             
             int idJogador = Convert.ToInt32(txtIdJogador.Text);
-            int idPartida = Convert.ToInt32(txtIdPartidaEntrar.Text);
+            int idPartida = Convert.ToInt32(txtIdPartida.Text);
             string senhaJogador = txtSenhaJogador.Text;
 
             IniciarPartida jogadorSorteado = JogoTratado.IniciarPartida(idJogador, senhaJogador);
             
             List<Jogador> jogadores = JogoTratado.ListarJogadores(idPartida);
-            
-            TelaJogo telaJogo = new TelaJogo();
 
-            telaJogo.atualizarTela();
-            telaJogo.idPartida = idPartida;
-            telaJogo.jogadores = jogadores;
-            telaJogo.jogadorLocal = jogadorLocal;
-            telaJogo.jogadorDaVez = jogadores.Find(x => x.idJogador == jogadorSorteado.idPrimeiroJogador);
+
+            TelaJogo telaJogo = new TelaJogo(
+                idPartida,
+                jogadorLocal, 
+                jogadores.Find(x => x.idJogador == jogadorSorteado.idPrimeiroJogador), 
+                jogadores
+            );
             telaJogo.ShowDialog();
         }
 
-        private void irParaJogoDebug_Click_1(object sender, EventArgs e)
-        {
-
-            TelaJogo telaJogo = new TelaJogo();
-            telaJogo.atualizarTela();
-            telaJogo.ShowDialog();
-            
-        }
+        // Remove this function, we are not using it anymore
+        private void irParaJogoDebug_Click_1(object sender, EventArgs e){}
 
 
     }
