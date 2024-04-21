@@ -50,3 +50,4 @@ C:\Users\Gustavo Alves Vieira\Source\Repos\PI_Sistema_Autonomo2\Aula3PI\obj\Debu
 C:\Users\Gustavo Alves Vieira\Source\Repos\PI_Sistema_Autonomo2\Aula3PI\obj\Debug\MadridLo.1B995410.Up2Date
 C:\Users\Gustavo Alves Vieira\Source\Repos\PI_Sistema_Autonomo2\Aula3PI\obj\Debug\Aula3PI.exe
 C:\Users\Gustavo Alves Vieira\Source\Repos\PI_Sistema_Autonomo2\Aula3PI\obj\Debug\Aula3PI.pdb
+C:\Users\bilol\OneDrive\Documentos\GitHub\PI_Sistema_Autonomo\Aula3PI\bin\Debug\MagicTrickServer.dll

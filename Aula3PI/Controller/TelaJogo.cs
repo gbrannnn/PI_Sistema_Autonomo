@@ -66,23 +66,26 @@ namespace Aula3PI
             int width = 60;
             int height = 100;
             int tamanho = Controls.Count;
-            for (int i = 0; i < tamanho; i++)
+            /*
+            for (int i = tamanho -1; i <= 0; i--)
             {
                 if(Controls[i] is Panel)
                 {
-                    Controls.Remove(Controls[i]);
+                    panel.Controls.Clear();
                 }
             }
+            */
 
             if (jogadores[0] != null) 
             {
                 List<Carta> cartasDoJogadorAtual = jogadores[0].cartas;
+                Panel painelCarta = new Panel();
+                painelCarta.Controls.Clear();
 
                 for (int i = 0; i < cartasDoJogadorAtual.Count; i++)
                 {
-                    Point point = new Point(100 + (width * i + 10), 30);
+                    Point point = new Point(100 + (width * i) + 20, 30);
                     Size size = new Size(width, height);
-                    Panel painelCarta = new Panel();
                     painelCarta.Location = point;
                     painelCarta.Size = size;
                     painelCarta.BackgroundImageLayout = ImageLayout.Stretch;
@@ -94,12 +97,13 @@ namespace Aula3PI
             if (jogadores[1] != null)
             {
                 List<Carta> cartasDoJogadorAtual = jogadores[1].cartas;
+                Panel painelCarta = new Panel();
+                painelCarta.Controls.Clear();
 
                 for (int i = 0; i < cartasDoJogadorAtual.Count; i++)
                 {
                     Point point = new Point(100 + (width * i + 10), 300);
                     Size size = new Size(width, height);
-                    Panel painelCarta = new Panel();
                     painelCarta.Location = point;
                     painelCarta.Size = size;
                     painelCarta.BackgroundImageLayout = ImageLayout.Stretch;
