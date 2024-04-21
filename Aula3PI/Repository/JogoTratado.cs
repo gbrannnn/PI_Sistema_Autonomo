@@ -106,5 +106,17 @@ namespace Aula3PI.Repository
             }
             return partidasTratadas;
         }
+
+        static public VerificarVez VerificarVez(int idPartida) 
+        {
+            string[] informacoesDaRodadaAtual = Utils.tratarRetornoDoBanco(Jogo.VerificarVez2(idPartida))[0].Split(',');
+
+            VerificarVez payload = new VerificarVez();
+            payload.statusPartida = informacoesDaRodadaAtual[0];
+            payload.idJogadorDaVez = Convert.ToInt32(informacoesDaRodadaAtual[1]);
+            payload.numeroRodada = Convert.ToInt32(informacoesDaRodadaAtual[2]);
+            payload.statusRodada = informacoesDaRodadaAtual[3];
+            return payload;
+        }
     }
 }
