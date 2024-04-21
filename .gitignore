@@ -43,6 +43,9 @@ dlldata.c
 *.ilk
 *.meta
 *.obj
+*.cache
+*.exe
+*.txt
 *.pch
 *.pdb
 *.pgc
@@ -210,4 +213,3 @@ obj\Debug
 .vs\MadridLobbyPI\FileContentIndex
 .vs\MadridLobbyPI\v17
 
-/Aula3PI/MaoJogadores.cs

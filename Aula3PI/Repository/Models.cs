@@ -63,6 +63,6 @@ namespace Aula3PI.Repository.Models
         public string statusPartida { get; set; }
         public int idJogadorDaVez { get; set; }
         public int numeroRodada { get; set; }
-        public string status { get; set; }
+        public string statusRodada { get; set; }
     }
 }

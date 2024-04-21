@@ -72,6 +72,6 @@ namespace Aula3PI.Repository.Interfaces
         string statusPartida { get; set; }
         int idJogadorDaVez { get; set; }
         int numeroRodada { get; set; }
-        string status { get; set; }
+        string statusRodada { get; set; }
     }
 }
