@@ -34,6 +34,8 @@ namespace Aula3PI
         public Jogador jogadorDaVez;
         public List<Carta> cartasJogadas;
         public string[] DebugJogadores;
+
+        public List<Panel> panels = new List<Panel>();
         public TelaJogo()
         {
             InitializeComponent();
@@ -63,54 +65,58 @@ namespace Aula3PI
             
             List<Carta> cartas = JogoTratado.ConsultarMao(Convert.ToInt32(idPartida), jogadores);
 
-            int width = 60;
-            int height = 100;
-            int tamanho = Controls.Count;
-            /*
-            for (int i = tamanho -1; i <= 0; i--)
+            if(panels != null)
             {
-                if(Controls[i] is Panel)
+                foreach(Panel panel in panels)
                 {
-                    panel.Controls.Clear();
+                    this.Controls.Remove(panel);
+                    panel.Dispose();
                 }
+                panels.Clear();
             }
-            */
+
 
             if (jogadores[0] != null) 
             {
+                Point point = new Point(100, 30);
+                Size size = new Size(60, 100);
                 List<Carta> cartasDoJogadorAtual = jogadores[0].cartas;
-                Panel painelCarta = new Panel();
-                painelCarta.Controls.Clear();
 
                 for (int i = 0; i < cartasDoJogadorAtual.Count; i++)
                 {
-                    Point point = new Point(100 + (width * i) + 20, 30);
-                    Size size = new Size(width, height);
+                    Panel painelCarta = new Panel();
+                    point.X = point.X + (size.Width + 10);
                     painelCarta.Location = point;
                     painelCarta.Size = size;
                     painelCarta.BackgroundImageLayout = ImageLayout.Stretch;
                     painelCarta.BackgroundImage = cartasDoJogadorAtual[i].background;
-                    this.Controls.Add(painelCarta);
+                    panels.Add(painelCarta);
                 }  
             }
 
             if (jogadores[1] != null)
             {
+                Point point = new Point(100, 300);
+                Size size = new Size(60, 100);
                 List<Carta> cartasDoJogadorAtual = jogadores[1].cartas;
-                Panel painelCarta = new Panel();
-                painelCarta.Controls.Clear();
 
                 for (int i = 0; i < cartasDoJogadorAtual.Count; i++)
                 {
-                    Point point = new Point(100 + (width * i + 10), 300);
-                    Size size = new Size(width, height);
+                    Panel painelCarta = new Panel();
+                    point.X = point.X + (size.Width + 10);
                     painelCarta.Location = point;
                     painelCarta.Size = size;
                     painelCarta.BackgroundImageLayout = ImageLayout.Stretch;
                     painelCarta.BackgroundImage = cartasDoJogadorAtual[i].background;
-                    this.Controls.Add(painelCarta);
+                    panels.Add(painelCarta);
                 }
             }
+
+            foreach(Panel panel in panels)
+            {
+                this.Controls.Add(panel);
+            }
+
         }
 
         private void btnJogar_Click(object sender, EventArgs e)
