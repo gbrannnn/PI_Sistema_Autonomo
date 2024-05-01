@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Aula3PI;
+using Aula3PI.JogadorEntity;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace utils
 {
