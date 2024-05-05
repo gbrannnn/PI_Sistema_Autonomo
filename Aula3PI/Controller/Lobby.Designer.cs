@@ -58,8 +58,6 @@
             this.txtIdJogador = new System.Windows.Forms.TextBox();
             this.lblIdJogador = new System.Windows.Forms.Label();
             this.btnIniciarPartida = new System.Windows.Forms.Button();
-            this.txtJogadorVez = new System.Windows.Forms.TextBox();
-            this.irParaJogoDebug = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnListarPartidas
@@ -362,33 +360,11 @@
             this.btnIniciarPartida.ForeColor = System.Drawing.SystemColors.Control;
             this.btnIniciarPartida.Location = new System.Drawing.Point(531, 353);
             this.btnIniciarPartida.Name = "btnIniciarPartida";
-            this.btnIniciarPartida.Size = new System.Drawing.Size(107, 20);
+            this.btnIniciarPartida.Size = new System.Drawing.Size(182, 20);
             this.btnIniciarPartida.TabIndex = 16;
             this.btnIniciarPartida.Text = "IniciarPartida";
             this.btnIniciarPartida.UseVisualStyleBackColor = false;
             this.btnIniciarPartida.Click += new System.EventHandler(this.btnIniciarPartida_Click);
-            // 
-            // txtJogadorVez
-            // 
-            this.txtJogadorVez.Location = new System.Drawing.Point(644, 353);
-            this.txtJogadorVez.Name = "txtJogadorVez";
-            this.txtJogadorVez.ReadOnly = true;
-            this.txtJogadorVez.Size = new System.Drawing.Size(69, 20);
-            this.txtJogadorVez.TabIndex = 41;
-            // 
-            // irParaJogoDebug
-            // 
-            this.irParaJogoDebug.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.irParaJogoDebug.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.irParaJogoDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.irParaJogoDebug.ForeColor = System.Drawing.SystemColors.Control;
-            this.irParaJogoDebug.Location = new System.Drawing.Point(531, 425);
-            this.irParaJogoDebug.Name = "irParaJogoDebug";
-            this.irParaJogoDebug.Size = new System.Drawing.Size(182, 20);
-            this.irParaJogoDebug.TabIndex = 42;
-            this.irParaJogoDebug.Text = "ir para jogo ( DEBUG )";
-            this.irParaJogoDebug.UseVisualStyleBackColor = false;
-            this.irParaJogoDebug.Click += new System.EventHandler(this.irParaJogoDebug_Click_1);
             // 
             // frmLobby
             // 
@@ -396,8 +372,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(834, 511);
-            this.Controls.Add(this.irParaJogoDebug);
-            this.Controls.Add(this.txtJogadorVez);
             this.Controls.Add(this.btnIniciarPartida);
             this.Controls.Add(this.lblSenhaJogador);
             this.Controls.Add(this.txtSenhaJogador);
@@ -470,8 +444,6 @@
         private System.Windows.Forms.TextBox txtIdJogador;
         private System.Windows.Forms.Label lblIdJogador;
         private System.Windows.Forms.Button btnIniciarPartida;
-        private System.Windows.Forms.TextBox txtJogadorVez;
-        private System.Windows.Forms.Button irParaJogoDebug;
     }
 }
 

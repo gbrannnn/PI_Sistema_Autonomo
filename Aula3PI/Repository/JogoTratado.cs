@@ -118,5 +118,43 @@ namespace Aula3PI.Repository
             payload.statusRodada = informacoesDaRodadaAtual[3];
             return payload;
         }
+        static public ExibirJogadas ExibirJogadas(int idPartida)
+        {
+            string[] jogadasDaRodada;
+
+            if (Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)) != null)
+            {
+                int lastIndex = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)).Length - 1;
+                jogadasDaRodada = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida))[lastIndex].Split(',');
+                ExibirJogadas payload = new ExibirJogadas();
+                payload.numeroDoRound = Convert.ToInt32(jogadasDaRodada[0]);
+                payload.idJogador = Convert.ToInt32(jogadasDaRodada[1]);
+                payload.naipe = jogadasDaRodada[2];
+                payload.valorNaipe = Convert.ToInt32(jogadasDaRodada[3]);
+                return payload;
+            }
+
+            return null;
+
+        }
+
+        static public ExibirJogadas ExibirJogadas(int idPartida, int numeroRodada)
+        {
+            string[] jogadasDaRodada;
+
+            if (Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)) != null)
+            {
+                jogadasDaRodada = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida))[0].Split(',');
+                ExibirJogadas payload = new ExibirJogadas();
+                payload.numeroDoRound = Convert.ToInt32(jogadasDaRodada[0]);
+                payload.idJogador = Convert.ToInt32(jogadasDaRodada[1]);
+                payload.naipe = jogadasDaRodada[2];
+                payload.valorNaipe = Convert.ToInt32(jogadasDaRodada[3]);
+                return payload;
+            }
+
+            return null;
+        }
+
     }
 }

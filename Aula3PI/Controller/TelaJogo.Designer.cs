@@ -44,7 +44,6 @@
             this.statusDaRodadaLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusDaRodadaTxt = new System.Windows.Forms.Label();
-            this.bntListarCartas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSairPartida
@@ -204,7 +203,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 10000;
+            this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // statusDaRodadaTxt
@@ -217,24 +216,6 @@
             this.statusDaRodadaTxt.Size = new System.Drawing.Size(126, 16);
             this.statusDaRodadaTxt.TabIndex = 25;
             this.statusDaRodadaTxt.Text = "Status da rodada";
-            // 
-            // bntListarCartas
-            // 
-            this.bntListarCartas.BackColor = System.Drawing.Color.Transparent;
-            this.bntListarCartas.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.bntListarCartas.FlatAppearance.BorderSize = 2;
-            this.bntListarCartas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.bntListarCartas.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.bntListarCartas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntListarCartas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntListarCartas.ForeColor = System.Drawing.SystemColors.Control;
-            this.bntListarCartas.Location = new System.Drawing.Point(49, 465);
-            this.bntListarCartas.Name = "bntListarCartas";
-            this.bntListarCartas.Size = new System.Drawing.Size(108, 25);
-            this.bntListarCartas.TabIndex = 11;
-            this.bntListarCartas.Text = "Listar Cartas";
-            this.bntListarCartas.UseVisualStyleBackColor = false;
-            this.bntListarCartas.Click += new System.EventHandler(this.bntListarCartas_Click);
             // 
             // TelaJogo
             // 
@@ -254,7 +235,6 @@
             this.Controls.Add(this.lblCartaAposta);
             this.Controls.Add(this.btnApostar);
             this.Controls.Add(this.btnJogar);
-            this.Controls.Add(this.bntListarCartas);
             this.Controls.Add(this.lblCartaJogada);
             this.Controls.Add(this.btnSairPartida);
             this.MaximizeBox = false;
@@ -282,6 +262,5 @@
         private System.Windows.Forms.Label statusDaRodadaLabel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label statusDaRodadaTxt;
-        private System.Windows.Forms.Button bntListarCartas;
     }
 }

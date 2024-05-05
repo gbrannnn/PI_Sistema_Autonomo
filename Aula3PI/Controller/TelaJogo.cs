@@ -86,62 +86,6 @@ namespace Aula3PI
             jogadorLocal.cartas = cartas.FindAll(carta => carta.idJogador == jogadorLocal.idJogador);
         }
 
-        private void bntListarCartas_Click(object sender, EventArgs e)
-        {
-
-            if(panels != null)
-            {
-                foreach(Panel panel in panels)
-                {
-                    this.Controls.Remove(panel);
-                    panel.Dispose();
-                }
-                panels.Clear();
-            }
-
-
-            if (jogadores[0] != null) 
-            {
-                Point point = new Point(100, 30);
-                Size size = new Size(60, 100);
-                List<Carta> cartasDoJogadorAtual = jogadores[0].cartas;
-
-                for (int i = 0; i < cartasDoJogadorAtual.Count; i++)
-                {
-                    Panel painelCarta = new Panel();
-                    point.X = point.X + (size.Width + 10);
-                    painelCarta.Location = point;
-                    painelCarta.Size = size;
-                    painelCarta.BackgroundImageLayout = ImageLayout.Stretch;
-                    painelCarta.BackgroundImage = cartasDoJogadorAtual[i].background;
-                    panels.Add(painelCarta);
-                }
-            }
-
-            if (jogadores[1] != null)
-            {
-                Point point = new Point(100, 300);
-                Size size = new Size(60, 100);
-                List<Carta> cartasDoJogadorAtual = jogadores[1].cartas;
-
-                for (int i = 0; i < cartasDoJogadorAtual.Count; i++)
-                {
-                    Panel painelCarta = new Panel();
-                    point.X = point.X + (size.Width + 10);
-                    painelCarta.Location = point;
-                    painelCarta.Size = size;
-                    painelCarta.BackgroundImageLayout = ImageLayout.Stretch;
-                    painelCarta.BackgroundImage = cartasDoJogadorAtual[i].background;
-                    panels.Add(painelCarta);
-                }
-            }
-
-            foreach(Panel panel in panels)
-            {
-                this.Controls.Add(panel);
-            }
-
-        }
         private void ListarCartas()
         {
             if (panels != null)
@@ -196,19 +140,17 @@ namespace Aula3PI
         private void timer1_Tick(object sender, EventArgs e)
         {
             int idJogadorDaVez = JogoTratado.VerificarVez(idPartida).idJogadorDaVez;
+            int numeroRodada = JogoTratado.VerificarVez(idPartida).numeroRodada;
+
             bool eMinhaVez = idJogadorDaVez == jogadorLocal.idJogador;
 
             if (eMinhaVez)
-            {
-                Random random = new Random();
+            {   
                 // For now it will always by zero but we need to visit this logic again to decide better
                 int numeroAposta = 0;
                 string payload;
                 do {
-                    int numeroDaCartaPraSerJogada = random.Next(1, jogadorLocal.cartas.Count);
-                    Jogo.Jogar(jogadorLocal.idJogador, jogadorLocal.senha, numeroDaCartaPraSerJogada);
-                    payload = Jogo.Apostar(jogadorLocal.idJogador, jogadorLocal.senha, 0);
-                    
+                    payload = jogadorLocal.Jogar(jogadorLocal, numeroRodada, idPartida);
                 } while (payload.StartsWith("E"));
 
             }

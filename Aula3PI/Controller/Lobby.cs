@@ -30,7 +30,7 @@ namespace Aula3PI
             cboStatusPartida.Items.Add("Todas");
             cboStatusPartida.Items.Add("Aberto");
             cboStatusPartida.Items.Add("Jogando");
-            cboStatusPartida.Items.Add("Encerrado");
+            cboStatusPartida.Items.Add("Finalizadas");
             cboStatusPartida.SelectedIndex = 0;
 
         
@@ -46,7 +46,7 @@ namespace Aula3PI
                 case 0: statusPartida = "T"; break;
                 case 1: statusPartida = "A"; break;
                 case 2: statusPartida = "J"; break;
-                case 3: statusPartida = "E"; break;
+                case 3: statusPartida = "F"; break;
             }
 
             List<ListarPartidasModel> partidas = JogoTratado.ListarPartidas(statusPartida);
@@ -148,15 +148,16 @@ namespace Aula3PI
 
             EntrarPartida infoJogadorCriado = JogoTratado.EntrarPartida(idPartida, txtNomeJogador.Text, txtSenhaPartida.Text);
 
-            //if (entrarPartida.Substring(0, 4) == "ERRO")
-            //{
-            //MessageBox.Show("Ocorreu um erro:\n"
-            //+entrarPartida.Substring(5),
-            //"Aviso",
-            //MessageBoxButtons.OK,
-            //MessageBoxIcon.Error);
-            //return;
-            //}
+            //chage realised here, if it's not working check this function
+            if (infoJogadorCriado.ToString().Substring(0, 4) == "ERRO")
+            {
+                MessageBox.Show("Ocorreu um erro:\n"
+                + infoJogadorCriado.ToString().Substring(5),
+                "Aviso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
 
             txtIdJogador.Text = Convert.ToString(infoJogadorCriado.idjogadorCriado);
             txtSenhaJogador.Text = infoJogadorCriado.senhaGerada;
@@ -186,10 +187,5 @@ namespace Aula3PI
             );
             telaJogo.ShowDialog();
         }
-
-        // Remove this function, we are not using it anymore
-        private void irParaJogoDebug_Click_1(object sender, EventArgs e){}
-
-
     }
 }
