@@ -49,7 +49,7 @@ namespace Aula3PI
             ListarCartas();
         }
 
-        public List<Panel> CriacaoPanelsCartas(List<Panel> panels, List<Carta> cartasDoJogadorAtual, int pointX, int pointY)
+        public List<Panel> CriacaoDePanelsCartas(List<Panel> panels, List<Carta> cartasDoJogadorAtual, int pointX, int pointY)
         {
             Point point = new Point(pointX, pointY);
             Size size = new Size(60, 100);
@@ -86,6 +86,17 @@ namespace Aula3PI
             jogadorLocal.cartas = cartas.FindAll(carta => carta.idJogador == jogadorLocal.idJogador);
         }
 
+        private void CriarCartasDosJogadoresNaTela(List<Jogador> jogadores, int posicaoJogador, int pointX, int pointY) 
+        {
+            if (jogadores[posicaoJogador] != null)
+            {
+                List<Carta> cartasDoJogadorAtual = jogadores[posicaoJogador].cartas;
+                CriacaoDePanelsCartas(panels, cartasDoJogadorAtual, pointX, pointY);
+                cartasDoJogadorAtual.Clear();
+            }
+
+        }
+
         private void ListarCartas()
         {
             if (panels != null)
@@ -98,23 +109,13 @@ namespace Aula3PI
                 panels.Clear();
             }
 
-            if (jogadores[0] != null)
-            {
-                int pointX = 100;
-                int pointY = 30;
-                List<Carta> cartasDoJogadorAtual = jogadores[0].cartas;
-                CriacaoPanelsCartas(panels, cartasDoJogadorAtual, pointX, pointY);
-                cartasDoJogadorAtual.Clear();
-            }
+            CriarCartasDosJogadoresNaTela(jogadores, 0, 100, 200);
+            CriarCartasDosJogadoresNaTela(jogadores, 1, 100, 400);
+            CriarCartasDosJogadoresNaTela(jogadores, 2, 100, 600);
+            CriarCartasDosJogadoresNaTela(jogadores, 3, 100, 800);
 
-            if (jogadores[1] != null)
-            {
-                int pointX = 100;
-                int pointY = 300;
-                List<Carta> cartasDoJogadorAtual = jogadores[1].cartas;
-                CriacaoPanelsCartas(panels, cartasDoJogadorAtual, pointX, pointY);
-                cartasDoJogadorAtual.Clear();
-            }
+
+
 
             foreach (Panel panel in panels)
             {
@@ -144,6 +145,7 @@ namespace Aula3PI
 
             bool eMinhaVez = idJogadorDaVez == jogadorLocal.idJogador;
 
+            atualizarTela();
             if (eMinhaVez)
             {   
                 // For now it will always by zero but we need to visit this logic again to decide better
@@ -154,7 +156,6 @@ namespace Aula3PI
                 } while (payload.StartsWith("E"));
 
             }
-            atualizarTela();
         }
     }
 }
