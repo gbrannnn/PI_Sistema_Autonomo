@@ -111,11 +111,8 @@ namespace Aula3PI
 
             CriarCartasDosJogadoresNaTela(jogadores, 0, 100, 200);
             CriarCartasDosJogadoresNaTela(jogadores, 1, 100, 400);
-            CriarCartasDosJogadoresNaTela(jogadores, 2, 100, 600);
-            CriarCartasDosJogadoresNaTela(jogadores, 3, 100, 800);
-
-
-
+            //CriarCartasDosJogadoresNaTela(jogadores, 2, 100, 600);
+            //CriarCartasDosJogadoresNaTela(jogadores, 3, 100, 800);
 
             foreach (Panel panel in panels)
             {
@@ -145,17 +142,11 @@ namespace Aula3PI
 
             bool eMinhaVez = idJogadorDaVez == jogadorLocal.idJogador;
 
-            atualizarTela();
             if (eMinhaVez)
-            {   
-                // For now it will always by zero but we need to visit this logic again to decide better
-                int numeroAposta = 0;
-                string payload;
-                do {
-                    payload = jogadorLocal.Jogar(jogadorLocal, numeroRodada, idPartida);
-                } while (payload.StartsWith("E"));
-
+            {
+                jogadorLocal.Jogar(jogadorLocal, numeroRodada, idPartida);
             }
+            atualizarTela();
         }
     }
 }

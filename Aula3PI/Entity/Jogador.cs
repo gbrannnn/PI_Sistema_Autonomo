@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Aula3PI.Repository;
 using Aula3PI.Repository.Interfaces;
+using Aula3PI.Repository.Models;
 using MagicTrickServer;
 
 namespace Aula3PI.JogadorEntity
@@ -22,6 +23,7 @@ namespace Aula3PI.JogadorEntity
         public string nome { get; set; }
         public int pontuacaoAtual { get; set; }
         public string senha { get; set; }
+        public bool Apostei { get; set; }
         public List<Carta> cartas { get; set; } = new List<Carta>();
         
 
@@ -34,42 +36,64 @@ namespace Aula3PI.JogadorEntity
         private int[] metodoDeJogar(Jogador jogadorLocal, int numeroRodada, int idPartida)
         {
             int[] valoresCartaEAposta = { 0, 0 };
+            int quantidadeCartas = jogadorLocal.cartas.Count;
+            int metadeQuantidadeCartas = quantidadeCartas / 2;
+
             Random random = new Random();
+            ExibirJogadas historicoJogadas = JogoTratado.ExibirJogadas(idPartida, numeroRodada);
 
-            int valorCarataJogada = 0;
-            if (JogoTratado.ExibirJogadas(idPartida).valorNaipe != null)
-            {
-                valorCarataJogada = JogoTratado.ExibirJogadas(idPartida).valorNaipe;
-            }
 
-            //Estratégia para jogar
-            if (valorCarataJogada > 3)
+            int posicaoCarta = 0;
+            if (historicoJogadas == null)
             {
-                valoresCartaEAposta[0] = random.Next(5, jogadorLocal.cartas.Count);
+                posicaoCarta = random.Next(0, metadeQuantidadeCartas);
+                valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
+                if (Apostei == false)
+                {
+                    posicaoCarta = random.Next(metadeQuantidadeCartas, quantidadeCartas);
+                    valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
+                    valoresCartaEAposta[1] = 4;
+                    Apostei = true;
+                }
             }
             else
             {
-                valoresCartaEAposta[0] = random.Next(0, 5);
-            }
+                if (Apostei == false)
+                {
+                    posicaoCarta = random.Next(metadeQuantidadeCartas, quantidadeCartas);
+                    valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
+                    valoresCartaEAposta[1] = 4;
+                    Apostei = true;
+                }
 
-
-            //Estratégia para aposta
-            if (numeroRodada == 2)
-            {
-                valoresCartaEAposta[1] = random.Next(4, 9); 
+                if (historicoJogadas.valorNaipe < 3)
+                {
+                    posicaoCarta = random.Next(1, metadeQuantidadeCartas);
+                    valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
+                }
+                else if (historicoJogadas.valorNaipe >= 3 && historicoJogadas.valorNaipe <= 5)
+                {
+                    posicaoCarta = random.Next(metadeQuantidadeCartas, quantidadeCartas);
+                    valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
+                }
+                else
+                {
+                    posicaoCarta = random.Next(0, quantidadeCartas);
+                    valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
+                }
             }
 
             return valoresCartaEAposta;
         }
 
-        public string Jogar(Jogador jogadorLocal, int numeroRodada, int idPartida)
+        public void Jogar(Jogador jogadorLocal, int numeroRodada, int idPartida)
         {
             int[] valoresCartaEAposta = metodoDeJogar(jogadorLocal, numeroRodada, idPartida);
             int indexCarta = valoresCartaEAposta[0];
             int indexAposta = valoresCartaEAposta[1];
 
             Jogo.Jogar(jogadorLocal.idJogador, jogadorLocal.senha, indexCarta);
-            return Jogo.Apostar(jogadorLocal.idJogador, jogadorLocal.senha, indexAposta);
+            Jogo.Apostar(jogadorLocal.idJogador, jogadorLocal.senha, indexAposta);
         } 
 
     }
