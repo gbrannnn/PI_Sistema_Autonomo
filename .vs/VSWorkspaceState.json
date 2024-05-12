@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Aula3PI"
+    "\\Aula3PI",
+    "\\Aula3PI\\Entity"
   ],
-  "SelectedNode": "\\Aula3PI\\Program.cs",
+  "SelectedNode": "\\Aula3PI\\Entity\\Jogador.cs",
   "PreviewInSolutionExplorer": false
 }

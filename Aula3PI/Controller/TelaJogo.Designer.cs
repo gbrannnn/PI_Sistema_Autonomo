@@ -30,11 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnSairPartida = new System.Windows.Forms.Button();
-            this.lblCartaJogada = new System.Windows.Forms.Label();
-            this.btnJogar = new System.Windows.Forms.Button();
             this.btnApostar = new System.Windows.Forms.Button();
             this.lblCartaAposta = new System.Windows.Forms.Label();
-            this.txtIdCarta = new System.Windows.Forms.TextBox();
             this.txtIdAposta = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.vezDoJogadorLabel = new System.Windows.Forms.Label();
@@ -49,6 +46,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.cartasJogadasList = new System.Windows.Forms.ListBox();
+            this.cartasJogadasLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pontuacaoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSairPartida
@@ -68,35 +69,6 @@
             this.btnSairPartida.Text = "Sair da Partida";
             this.btnSairPartida.UseVisualStyleBackColor = false;
             this.btnSairPartida.Click += new System.EventHandler(this.btnSairPartida_Click);
-            // 
-            // lblCartaJogada
-            // 
-            this.lblCartaJogada.AutoSize = true;
-            this.lblCartaJogada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCartaJogada.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCartaJogada.Location = new System.Drawing.Point(1257, 844);
-            this.lblCartaJogada.Name = "lblCartaJogada";
-            this.lblCartaJogada.Size = new System.Drawing.Size(101, 16);
-            this.lblCartaJogada.TabIndex = 5;
-            this.lblCartaJogada.Text = "Carta Jogada";
-            // 
-            // btnJogar
-            // 
-            this.btnJogar.BackColor = System.Drawing.Color.Transparent;
-            this.btnJogar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnJogar.FlatAppearance.BorderSize = 2;
-            this.btnJogar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnJogar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnJogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJogar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnJogar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnJogar.Location = new System.Drawing.Point(1296, 811);
-            this.btnJogar.Name = "btnJogar";
-            this.btnJogar.Size = new System.Drawing.Size(62, 25);
-            this.btnJogar.TabIndex = 12;
-            this.btnJogar.Text = "Jogar";
-            this.btnJogar.UseVisualStyleBackColor = false;
-            this.btnJogar.Click += new System.EventHandler(this.btnJogar_Click);
             // 
             // btnApostar
             // 
@@ -126,13 +98,6 @@
             this.lblCartaAposta.Size = new System.Drawing.Size(97, 16);
             this.lblCartaAposta.TabIndex = 16;
             this.lblCartaAposta.Text = "Carta Aposta";
-            // 
-            // txtIdCarta
-            // 
-            this.txtIdCarta.Location = new System.Drawing.Point(1260, 814);
-            this.txtIdCarta.Name = "txtIdCarta";
-            this.txtIdCarta.Size = new System.Drawing.Size(29, 20);
-            this.txtIdCarta.TabIndex = 17;
             // 
             // txtIdAposta
             // 
@@ -277,12 +242,57 @@
             this.label6.TabIndex = 30;
             this.label6.Text = "Jogador 3";
             // 
+            // cartasJogadasList
+            // 
+            this.cartasJogadasList.FormattingEnabled = true;
+            this.cartasJogadasList.Location = new System.Drawing.Point(1388, 102);
+            this.cartasJogadasList.Name = "cartasJogadasList";
+            this.cartasJogadasList.Size = new System.Drawing.Size(120, 641);
+            this.cartasJogadasList.TabIndex = 31;
+            // 
+            // cartasJogadasLabel
+            // 
+            this.cartasJogadasLabel.AutoSize = true;
+            this.cartasJogadasLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cartasJogadasLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.cartasJogadasLabel.Location = new System.Drawing.Point(1385, 71);
+            this.cartasJogadasLabel.Name = "cartasJogadasLabel";
+            this.cartasJogadasLabel.Size = new System.Drawing.Size(117, 16);
+            this.cartasJogadasLabel.TabIndex = 32;
+            this.cartasJogadasLabel.Text = "Cartas Jogadas";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(1229, 372);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 16);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Pontuação";
+            // 
+            // pontuacaoLabel
+            // 
+            this.pontuacaoLabel.AutoSize = true;
+            this.pontuacaoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pontuacaoLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.pontuacaoLabel.Location = new System.Drawing.Point(1229, 398);
+            this.pontuacaoLabel.Name = "pontuacaoLabel";
+            this.pontuacaoLabel.Size = new System.Drawing.Size(81, 16);
+            this.pontuacaoLabel.TabIndex = 34;
+            this.pontuacaoLabel.Text = "Pontuação";
+            // 
             // TelaJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.pontuacaoLabel);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cartasJogadasLabel);
+            this.Controls.Add(this.cartasJogadasList);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -296,16 +306,13 @@
             this.Controls.Add(this.vezDoJogadorLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtIdAposta);
-            this.Controls.Add(this.txtIdCarta);
             this.Controls.Add(this.lblCartaAposta);
             this.Controls.Add(this.btnApostar);
-            this.Controls.Add(this.btnJogar);
-            this.Controls.Add(this.lblCartaJogada);
             this.Controls.Add(this.btnSairPartida);
             this.MaximizeBox = false;
             this.Name = "TelaJogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Magic Trick";
+            this.Text = "alowwalow ";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,11 +320,8 @@
 
         #endregion
         private System.Windows.Forms.Button btnSairPartida;
-        private System.Windows.Forms.Label lblCartaJogada;
-        private System.Windows.Forms.Button btnJogar;
         private System.Windows.Forms.Button btnApostar;
         private System.Windows.Forms.Label lblCartaAposta;
-        private System.Windows.Forms.TextBox txtIdCarta;
         private System.Windows.Forms.TextBox txtIdAposta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label vezDoJogadorLabel;
@@ -332,5 +336,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox cartasJogadasList;
+        private System.Windows.Forms.Label cartasJogadasLabel;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label pontuacaoLabel;
     }
 }

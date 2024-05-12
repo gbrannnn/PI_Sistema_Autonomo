@@ -40,11 +40,12 @@ namespace Aula3PI.JogadorEntity
             int metadeQuantidadeCartas = quantidadeCartas / 2;
 
             Random random = new Random();
-            ExibirJogadas historicoJogadas = JogoTratado.ExibirJogadas(idPartida, numeroRodada);
+            List<ExibirJogadas> historicoJogadas = JogoTratado.ExibirJogadas(idPartida, numeroRodada);
+            int ultimaJogada = historicoJogadas.Count == 0 ? 0 : historicoJogadas.Count - 1;
 
 
             int posicaoCarta = 0;
-            if (historicoJogadas == null)
+            if (historicoJogadas.Count == 0)
             {
                 posicaoCarta = random.Next(0, metadeQuantidadeCartas);
                 valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
@@ -66,12 +67,12 @@ namespace Aula3PI.JogadorEntity
                     Apostei = true;
                 }
 
-                if (historicoJogadas.valorNaipe < 3)
+                if (historicoJogadas[ultimaJogada].valorNaipe < 3)
                 {
                     posicaoCarta = random.Next(1, metadeQuantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                 }
-                else if (historicoJogadas.valorNaipe >= 3 && historicoJogadas.valorNaipe <= 5)
+                else if (historicoJogadas[ultimaJogada].valorNaipe >= 3 && historicoJogadas[ultimaJogada].valorNaipe <= 5)
                 {
                     posicaoCarta = random.Next(metadeQuantidadeCartas, quantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
@@ -92,8 +93,8 @@ namespace Aula3PI.JogadorEntity
             int indexCarta = valoresCartaEAposta[0];
             int indexAposta = valoresCartaEAposta[1];
 
-            Jogo.Jogar(jogadorLocal.idJogador, jogadorLocal.senha, indexCarta);
-            Jogo.Apostar(jogadorLocal.idJogador, jogadorLocal.senha, indexAposta);
+            string erro = Jogo.Jogar(jogadorLocal.idJogador, jogadorLocal.senha, indexCarta);
+            string erro2 = Jogo.Apostar(jogadorLocal.idJogador, jogadorLocal.senha, indexAposta);
         } 
 
     }

@@ -27,24 +27,44 @@ namespace Aula3PI
         public List<Jogador> jogadores;
         public List<Carta> cartasJogadas;
         public List<Panel> panels = new List<Panel>();
+        public int round;
 
         public TelaJogo(int idPartida, Jogador jogadorLocal, Jogador jogadorDaVez, List<Jogador> jogadores)
         {
             this.idPartida = idPartida;
             this.jogadorLocal = jogadorLocal;
-            this.jogadorDaVez = jogadorDaVez;
+
             this.jogadores = jogadores;
 
+            if (jogadorDaVez == null)
+            {
+                int idJogadorDaVez = JogoTratado.VerificarVez(idPartida).idJogadorDaVez;
+                this.jogadorDaVez = jogadores.Find(jogador => jogador.idJogador == idJogadorDaVez);
+            }
+            else
+            {
+                this.jogadorDaVez = jogadorDaVez;
+            }
             InitializeComponent();
             atualizarTela();
         }
-        
+
         public void atualizarTela()
         {
             VerificarVez informacoesSobreARodada = JogoTratado.VerificarVez(idPartida);
             vezDoJogadorText.Text = Convert.ToString(informacoesSobreARodada.idJogadorDaVez);
             statusPartidaText.Text = informacoesSobreARodada.statusPartida;
             statusDaRodadaTxt.Text = informacoesSobreARodada.statusRodada;
+            cartasJogadasList.Items.Clear();
+            List<ExibirJogadas> x = JogoTratado.ExibirJogadas(idPartida);
+            if (x != null)
+            {
+                foreach (var item in x)
+                {
+                    cartasJogadasList.Items.Add($"{item.idJogador} + {item.valorNaipe} + {item.naipe}");
+                }
+            }
+            
             AtribuirCartasParaCadaJogador();
             ListarCartas();
         }
@@ -118,11 +138,6 @@ namespace Aula3PI
             {
                 this.Controls.Add(panel);
             }
-        }
-        private void btnJogar_Click(object sender, EventArgs e)
-        {
-            string valorCarta = Jogo.Jogar(jogadorLocal.idJogador, jogadorLocal.senha, Convert.ToInt32(txtIdCarta.Text));
-            lblCartaJogada.Text = valorCarta;
         }
 
         private void btnApostar_Click(object sender, EventArgs e)

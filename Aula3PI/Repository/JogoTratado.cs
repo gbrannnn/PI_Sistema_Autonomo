@@ -118,42 +118,46 @@ namespace Aula3PI.Repository
             payload.statusRodada = informacoesDaRodadaAtual[3];
             return payload;
         }
-        static public ExibirJogadas ExibirJogadas(int idPartida)
+        static public List<ExibirJogadas> ExibirJogadas(int idPartida)
         {
             string[] jogadasDaRodada;
+            List<ExibirJogadas> payload = new List<ExibirJogadas>();
 
             if (Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)) != null)
             {
-                int lastIndex = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)).Length - 1;
-                jogadasDaRodada = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida))[lastIndex].Split(',');
-                ExibirJogadas payload = new ExibirJogadas();
-                payload.numeroDoRound = Convert.ToInt32(jogadasDaRodada[0]);
-                payload.idJogador = Convert.ToInt32(jogadasDaRodada[1]);
-                payload.naipe = jogadasDaRodada[2];
-                payload.valorNaipe = Convert.ToInt32(jogadasDaRodada[3]);
-                return payload;
+                for (int i = 0; i < Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)).Length; i++)
+                {
+                    jogadasDaRodada = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida))[i].Split(',');
+                    ExibirJogadas temp = new ExibirJogadas();
+                    temp.numeroDoRound = Convert.ToInt32(jogadasDaRodada[0]);
+                    temp.idJogador = Convert.ToInt32(jogadasDaRodada[1]);
+                    temp.naipe = jogadasDaRodada[2];
+                    temp.valorNaipe = Convert.ToInt32(jogadasDaRodada[3]);
+                    payload.Add(temp);
+                }
             }
 
-            return null;
+            return payload;
 
         }
 
-        static public ExibirJogadas ExibirJogadas(int idPartida, int numeroRodada)
+        static public List<ExibirJogadas> ExibirJogadas(int idPartida, int numeroRodada)
         {
             string[] jogadasDaRodada;
+            List<ExibirJogadas> payload = new List<ExibirJogadas>();
 
             if (Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)) != null)
             {
                 jogadasDaRodada = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida))[0].Split(',');
-                ExibirJogadas payload = new ExibirJogadas();
-                payload.numeroDoRound = Convert.ToInt32(jogadasDaRodada[0]);
-                payload.idJogador = Convert.ToInt32(jogadasDaRodada[1]);
-                payload.naipe = jogadasDaRodada[2];
-                payload.valorNaipe = Convert.ToInt32(jogadasDaRodada[3]);
-                return payload;
+                ExibirJogadas temp = new ExibirJogadas();
+                temp.numeroDoRound = Convert.ToInt32(jogadasDaRodada[0]);
+                temp.idJogador = Convert.ToInt32(jogadasDaRodada[1]);
+                temp.naipe = jogadasDaRodada[2];
+                temp.valorNaipe = Convert.ToInt32(jogadasDaRodada[3]);
+                payload.Add(temp);
             }
 
-            return null;
+            return payload;
         }
 
     }

@@ -187,5 +187,21 @@ namespace Aula3PI
             );
             telaJogo.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int idPartida = Convert.ToInt32(txtIdPartida.Text);
+
+            List<Jogador> jogadores = JogoTratado.ListarJogadores(idPartida);
+
+
+            TelaJogo telaJogo = new TelaJogo(
+                idPartida,
+                jogadorLocal,
+                null,
+                jogadores
+            );
+            telaJogo.ShowDialog();
+        }
     }
 }
