@@ -148,13 +148,16 @@ namespace Aula3PI.Repository
 
             if (Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)) != null)
             {
-                jogadasDaRodada = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida))[0].Split(',');
-                ExibirJogadas temp = new ExibirJogadas();
-                temp.numeroDoRound = Convert.ToInt32(jogadasDaRodada[0]);
-                temp.idJogador = Convert.ToInt32(jogadasDaRodada[1]);
-                temp.naipe = jogadasDaRodada[2];
-                temp.valorNaipe = Convert.ToInt32(jogadasDaRodada[3]);
-                payload.Add(temp);
+                for (int i = 0; i < Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)).Length; i++)
+                {
+                    jogadasDaRodada = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida))[i].Split(',');
+                    ExibirJogadas temp = new ExibirJogadas();
+                    temp.numeroDoRound = Convert.ToInt32(jogadasDaRodada[0]);
+                    temp.idJogador = Convert.ToInt32(jogadasDaRodada[1]);
+                    temp.naipe = jogadasDaRodada[2];
+                    temp.valorNaipe = Convert.ToInt32(jogadasDaRodada[3]);
+                    payload.Add(temp);
+                }
             }
 
             return payload;

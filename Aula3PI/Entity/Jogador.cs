@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.DataVisualization.Charting;
 using Aula3PI.Repository;
 using Aula3PI.Repository.Interfaces;
 using Aula3PI.Repository.Models;
@@ -69,17 +70,37 @@ namespace Aula3PI.JogadorEntity
 
                 if (historicoJogadas[ultimaJogada].valorNaipe < 3)
                 {
-                    posicaoCarta = random.Next(1, metadeQuantidadeCartas);
+                    for (int i = 1; i < metadeQuantidadeCartas; i++)
+                    {
+                        Carta cartaEscolhida = jogadorLocal.cartas[i];
+                        if (cartaEscolhida.naipe == historicoJogadas[ultimaJogada].naipe)
+                        {
+                            valoresCartaEAposta[0] = cartaEscolhida.posicao;
+                            return valoresCartaEAposta;
+                        }
+                    }
+
+                    posicaoCarta = random.Next(1, quantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
+
                 }
                 else if (historicoJogadas[ultimaJogada].valorNaipe >= 3 && historicoJogadas[ultimaJogada].valorNaipe <= 5)
                 {
-                    posicaoCarta = random.Next(metadeQuantidadeCartas, quantidadeCartas);
+                    for (int i = metadeQuantidadeCartas; i < quantidadeCartas; i++)
+                    {
+                        Carta cartaEscolhida = jogadorLocal.cartas[i];
+                        if (cartaEscolhida.naipe == historicoJogadas[ultimaJogada].naipe)
+                        {
+                            valoresCartaEAposta[0] = cartaEscolhida.posicao;
+                            return valoresCartaEAposta;
+                        }
+                    }
+                    posicaoCarta = random.Next(1, quantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                 }
                 else
                 {
-                    posicaoCarta = random.Next(0, quantidadeCartas);
+                    posicaoCarta = random.Next(1, quantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                 }
             }
