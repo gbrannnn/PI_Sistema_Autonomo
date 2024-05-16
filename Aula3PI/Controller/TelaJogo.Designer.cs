@@ -48,8 +48,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cartasJogadasList = new System.Windows.Forms.ListBox();
             this.cartasJogadasLabel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pontuacaoLabel = new System.Windows.Forms.Label();
+            this.lblPontuaçãoJogador1 = new System.Windows.Forms.Label();
+            this.lblPontuaçãoJogador2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSairPartida
@@ -62,7 +62,7 @@
             this.btnSairPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSairPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSairPartida.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSairPartida.Location = new System.Drawing.Point(1786, 997);
+            this.btnSairPartida.Location = new System.Drawing.Point(1786, 917);
             this.btnSairPartida.Name = "btnSairPartida";
             this.btnSairPartida.Size = new System.Drawing.Size(106, 32);
             this.btnSairPartida.TabIndex = 1;
@@ -240,7 +240,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 16);
             this.label6.TabIndex = 30;
-            this.label6.Text = "Jogador 3";
+            this.label6.Text = "Jogador 4";
             // 
             // cartasJogadasList
             // 
@@ -261,36 +261,36 @@
             this.cartasJogadasLabel.TabIndex = 32;
             this.cartasJogadasLabel.Text = "Cartas Jogadas";
             // 
-            // label7
+            // lblPontuaçãoJogador1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(1229, 372);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 16);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Pontuação";
+            this.lblPontuaçãoJogador1.AutoSize = true;
+            this.lblPontuaçãoJogador1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPontuaçãoJogador1.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblPontuaçãoJogador1.Location = new System.Drawing.Point(1229, 372);
+            this.lblPontuaçãoJogador1.Name = "lblPontuaçãoJogador1";
+            this.lblPontuaçãoJogador1.Size = new System.Drawing.Size(81, 16);
+            this.lblPontuaçãoJogador1.TabIndex = 33;
+            this.lblPontuaçãoJogador1.Text = "Pontuação";
             // 
-            // pontuacaoLabel
+            // lblPontuaçãoJogador2
             // 
-            this.pontuacaoLabel.AutoSize = true;
-            this.pontuacaoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pontuacaoLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.pontuacaoLabel.Location = new System.Drawing.Point(1229, 398);
-            this.pontuacaoLabel.Name = "pontuacaoLabel";
-            this.pontuacaoLabel.Size = new System.Drawing.Size(81, 16);
-            this.pontuacaoLabel.TabIndex = 34;
-            this.pontuacaoLabel.Text = "Pontuação";
+            this.lblPontuaçãoJogador2.AutoSize = true;
+            this.lblPontuaçãoJogador2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPontuaçãoJogador2.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblPontuaçãoJogador2.Location = new System.Drawing.Point(1229, 398);
+            this.lblPontuaçãoJogador2.Name = "lblPontuaçãoJogador2";
+            this.lblPontuaçãoJogador2.Size = new System.Drawing.Size(81, 16);
+            this.lblPontuaçãoJogador2.TabIndex = 34;
+            this.lblPontuaçãoJogador2.Text = "Pontuação";
             // 
             // TelaJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.pontuacaoLabel);
-            this.Controls.Add(this.label7);
+            this.ClientSize = new System.Drawing.Size(1904, 961);
+            this.Controls.Add(this.lblPontuaçãoJogador2);
+            this.Controls.Add(this.lblPontuaçãoJogador1);
             this.Controls.Add(this.cartasJogadasLabel);
             this.Controls.Add(this.cartasJogadasList);
             this.Controls.Add(this.label6);
@@ -338,7 +338,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox cartasJogadasList;
         private System.Windows.Forms.Label cartasJogadasLabel;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label pontuacaoLabel;
+        private System.Windows.Forms.Label lblPontuaçãoJogador1;
+        private System.Windows.Forms.Label lblPontuaçãoJogador2;
     }
 }

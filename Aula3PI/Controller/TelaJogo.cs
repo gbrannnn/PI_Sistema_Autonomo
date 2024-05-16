@@ -48,25 +48,44 @@ namespace Aula3PI
             InitializeComponent();
             atualizarTela();
         }
-
+        //Revisitar essa lógica 
         public void atualizarTela()
         {
             VerificarVez informacoesSobreARodada = JogoTratado.VerificarVez(idPartida);
-            vezDoJogadorText.Text = Convert.ToString(informacoesSobreARodada.idJogadorDaVez);
-            statusPartidaText.Text = informacoesSobreARodada.statusPartida;
-            statusDaRodadaTxt.Text = informacoesSobreARodada.statusRodada;
-            cartasJogadasList.Items.Clear();
-            List<ExibirJogadas> x = JogoTratado.ExibirJogadas(idPartida);
-            if (x != null)
+
+            if (informacoesSobreARodada.statusPartida != "E") 
             {
-                foreach (var item in x)
+                vezDoJogadorText.Text = Convert.ToString(informacoesSobreARodada.idJogadorDaVez);
+                statusPartidaText.Text = informacoesSobreARodada.statusPartida;
+                statusDaRodadaTxt.Text = informacoesSobreARodada.statusRodada;
+                lblPontuaçãoJogador1.Text = jogadorLocal.pontuacaoAtual.ToString();
+                lblPontuaçãoJogador2.Text = jogadores[1].pontuacaoAtual.ToString();
+                cartasJogadasList.Items.Clear();
+                /*
+                List<ExibirJogadas> x = JogoTratado.ExibirJogadas(idPartida);
+                if (x != null)
                 {
-                    cartasJogadasList.Items.Add($"{item.idJogador} + {item.valorNaipe} + {item.naipe}");
+                    foreach (var item in x)
+                    {
+                        cartasJogadasList.Items.Add($"{item.idJogador} + {item.valorNaipe} + {item.naipe}");
+                    }
+                }
+                */
+                AtribuirCartasParaCadaJogador();
+                ListarCartas();
+            }
+            else
+            {
+                DialogResult mensagemBoxRetorno = MessageBox.Show("Tem certeza que deseja retonar ao Lobby?"
+                                              , "Aviso"
+                                              , MessageBoxButtons.YesNo
+                                              , MessageBoxIcon.Question);
+
+                if (mensagemBoxRetorno == DialogResult.Yes)
+                {
+                    this.Close();
                 }
             }
-            
-            AtribuirCartasParaCadaJogador();
-            ListarCartas();
         }
 
         public List<Panel> CriacaoDePanelsCartas(List<Panel> panels, List<Carta> cartasDoJogadorAtual, int pointX, int pointY)
@@ -108,13 +127,9 @@ namespace Aula3PI
 
         private void CriarCartasDosJogadoresNaTela(List<Jogador> jogadores, int posicaoJogador, int pointX, int pointY) 
         {
-            if (jogadores[posicaoJogador] != null)
-            {
-                List<Carta> cartasDoJogadorAtual = jogadores[posicaoJogador].cartas;
-                CriacaoDePanelsCartas(panels, cartasDoJogadorAtual, pointX, pointY);
-                cartasDoJogadorAtual.Clear();
-            }
-
+            List<Carta> cartasDoJogadorAtual = jogadores[posicaoJogador].cartas;
+            CriacaoDePanelsCartas(panels, cartasDoJogadorAtual, pointX, pointY);
+            cartasDoJogadorAtual.Clear();
         }
 
         private void ListarCartas()
@@ -129,10 +144,26 @@ namespace Aula3PI
                 panels.Clear();
             }
 
-            CriarCartasDosJogadoresNaTela(jogadores, 0, 100, 200);
-            CriarCartasDosJogadoresNaTela(jogadores, 1, 100, 400);
-            //CriarCartasDosJogadoresNaTela(jogadores, 2, 100, 600);
-            //CriarCartasDosJogadoresNaTela(jogadores, 3, 100, 800);
+            switch (jogadores.Count)
+            {
+                case 2:
+                    CriarCartasDosJogadoresNaTela(jogadores, 0, 100, 200);
+                    CriarCartasDosJogadoresNaTela(jogadores, 1, 100, 400);
+                    break;
+                case 3:
+                    CriarCartasDosJogadoresNaTela(jogadores, 0, 100, 200);
+                    CriarCartasDosJogadoresNaTela(jogadores, 1, 100, 400);
+                    CriarCartasDosJogadoresNaTela(jogadores, 2, 100, 600);
+                    break;
+                case 4:
+                    CriarCartasDosJogadoresNaTela(jogadores, 0, 100, 200);
+                    CriarCartasDosJogadoresNaTela(jogadores, 1, 100, 400);
+                    CriarCartasDosJogadoresNaTela(jogadores, 2, 100, 600);
+                    CriarCartasDosJogadoresNaTela(jogadores, 3, 100, 800);
+                    break;
+                default:
+                    break;
+            }
 
             foreach (Panel panel in panels)
             {

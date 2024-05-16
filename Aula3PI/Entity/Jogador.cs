@@ -48,11 +48,11 @@ namespace Aula3PI.JogadorEntity
             int posicaoCarta = 0;
             if (historicoJogadas.Count == 0)
             {
-                posicaoCarta = random.Next(0, metadeQuantidadeCartas);
+                posicaoCarta = random.Next(1, metadeQuantidadeCartas);
                 valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                 if (Apostei == false)
                 {
-                    posicaoCarta = random.Next(metadeQuantidadeCartas, quantidadeCartas);
+                    posicaoCarta = random.Next(metadeQuantidadeCartas - 2, metadeQuantidadeCartas + 1);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                     valoresCartaEAposta[1] = 4;
                     Apostei = true;
@@ -62,7 +62,7 @@ namespace Aula3PI.JogadorEntity
             {
                 if (Apostei == false)
                 {
-                    posicaoCarta = random.Next(metadeQuantidadeCartas, quantidadeCartas);
+                    posicaoCarta = random.Next(metadeQuantidadeCartas - 2, metadeQuantidadeCartas + 1);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                     valoresCartaEAposta[1] = 4;
                     Apostei = true;
@@ -80,7 +80,7 @@ namespace Aula3PI.JogadorEntity
                         }
                     }
 
-                    posicaoCarta = random.Next(1, quantidadeCartas);
+                    posicaoCarta = random.Next(0, quantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
 
                 }
@@ -95,12 +95,12 @@ namespace Aula3PI.JogadorEntity
                             return valoresCartaEAposta;
                         }
                     }
-                    posicaoCarta = random.Next(1, quantidadeCartas);
+                    posicaoCarta = random.Next(0, quantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                 }
                 else
                 {
-                    posicaoCarta = random.Next(1, quantidadeCartas);
+                    posicaoCarta = random.Next(0, quantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                 }
             }
