@@ -56,6 +56,7 @@ namespace Aula3PI.Repository.Interfaces
         int idJogador { get; set; }
         string nome { get; set; }
         int pontuacaoAtual { get; set; }
+        int qtdRodadasVencidas { get; set; }
     }
 
 

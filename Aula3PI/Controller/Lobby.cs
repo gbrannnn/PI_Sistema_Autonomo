@@ -73,7 +73,7 @@ namespace Aula3PI
                 idPartida = Convert.ToInt32(txtIdPartida.Text);
             }
 
-            string jogador = Jogo.ListarJogadores(idPartida);
+            string jogador = Jogo.ListarJogadores2(idPartida);
 
             if(jogador == "")
             {

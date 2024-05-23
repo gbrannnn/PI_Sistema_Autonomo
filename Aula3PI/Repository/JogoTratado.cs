@@ -72,7 +72,7 @@ namespace Aula3PI.Repository
 
         static public List<Jogador> ListarJogadores(int idPartida)
         {
-            string[] retornoDoBanco = Utils.tratarRetornoDoBanco(Jogo.ListarJogadores(idPartida));
+            string[] retornoDoBanco = Utils.tratarRetornoDoBanco(Jogo.ListarJogadores2(idPartida));
             List<Jogador> jogadores = new List<Jogador>();
 
             foreach(string jogador in retornoDoBanco)
@@ -82,6 +82,7 @@ namespace Aula3PI.Repository
                 TempModel.idJogador = Convert.ToInt32(aux[0]);
                 TempModel.nome = aux[1];
                 TempModel.pontuacaoAtual = Convert.ToInt32(aux[2]);
+                TempModel.qtdRodadasVencidas = Convert.ToInt32(aux[3]);
                 jogadores.Add(TempModel);
             }
             return jogadores;
@@ -122,12 +123,13 @@ namespace Aula3PI.Repository
         {
             string[] jogadasDaRodada;
             List<ExibirJogadas> payload = new List<ExibirJogadas>();
+            string[] retornoDoBanco = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas(idPartida));
 
-            if (Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)) != null)
+            if (retornoDoBanco != null)
             {
-                for (int i = 0; i < Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)).Length; i++)
+                for (int i = 0; i < retornoDoBanco.Length; i++)
                 {
-                    jogadasDaRodada = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida))[i].Split(',');
+                    jogadasDaRodada = retornoDoBanco[i].Split(',');
                     ExibirJogadas temp = new ExibirJogadas();
                     temp.numeroDoRound = Convert.ToInt32(jogadasDaRodada[0]);
                     temp.idJogador = Convert.ToInt32(jogadasDaRodada[1]);
@@ -145,12 +147,13 @@ namespace Aula3PI.Repository
         {
             string[] jogadasDaRodada;
             List<ExibirJogadas> payload = new List<ExibirJogadas>();
+            string[] retornoDoBanco = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas(idPartida));
 
-            if (Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)) != null)
+            if (retornoDoBanco != null)
             {
-                for (int i = 0; i < Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida)).Length; i++)
+                for (int i = 0; i < retornoDoBanco.Length; i++)
                 {
-                    jogadasDaRodada = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida))[i].Split(',');
+                    jogadasDaRodada = retornoDoBanco[i].Split(',');
                     ExibirJogadas temp = new ExibirJogadas();
                     temp.numeroDoRound = Convert.ToInt32(jogadasDaRodada[0]);
                     temp.idJogador = Convert.ToInt32(jogadasDaRodada[1]);

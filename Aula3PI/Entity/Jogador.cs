@@ -23,36 +23,39 @@ namespace Aula3PI.JogadorEntity
         public int idJogador { get; set; }
         public string nome { get; set; }
         public int pontuacaoAtual { get; set; }
+        public int qtdRodadasVencidas { get; set; }
         public string senha { get; set; }
         public bool Apostei { get; set; }
         public List<Carta> cartas { get; set; } = new List<Carta>();
-        
 
-        public void Jogar() 
+        private void VerificarQtdRodadasVencidas()
         {
-            Random rand = new Random();
-            Carta cartaSorteada = cartas[rand.Next(0, cartas.Count)];
+            if (qtdRodadasVencidas == 0)
+            {
+                Apostei = false;
+            }
         }
-
-        private int[] metodoDeJogar(Jogador jogadorLocal, int numeroRodada, int idPartida)
+        private int[] metodoDeJogar(Jogador jogadorLocal, int idPartida)
         {
             int[] valoresCartaEAposta = { 0, 0 };
             int quantidadeCartas = jogadorLocal.cartas.Count;
             int metadeQuantidadeCartas = quantidadeCartas / 2;
 
             Random random = new Random();
-            List<ExibirJogadas> historicoJogadas = JogoTratado.ExibirJogadas(idPartida, numeroRodada);
+            List<ExibirJogadas> historicoJogadas = JogoTratado.ExibirJogadas(idPartida);
             int ultimaJogada = historicoJogadas.Count == 0 ? 0 : historicoJogadas.Count - 1;
 
+            VerificarQtdRodadasVencidas();
 
             int posicaoCarta = 0;
+
             if (historicoJogadas.Count == 0)
             {
                 posicaoCarta = random.Next(1, metadeQuantidadeCartas);
                 valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                 if (Apostei == false)
                 {
-                    posicaoCarta = random.Next(metadeQuantidadeCartas - 2, metadeQuantidadeCartas + 1);
+                    posicaoCarta = random.Next(metadeQuantidadeCartas, metadeQuantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                     valoresCartaEAposta[1] = 4;
                     Apostei = true;
@@ -62,7 +65,7 @@ namespace Aula3PI.JogadorEntity
             {
                 if (Apostei == false)
                 {
-                    posicaoCarta = random.Next(metadeQuantidadeCartas - 2, metadeQuantidadeCartas + 1);
+                    posicaoCarta = random.Next(metadeQuantidadeCartas, metadeQuantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                     valoresCartaEAposta[1] = 4;
                     Apostei = true;
@@ -108,9 +111,9 @@ namespace Aula3PI.JogadorEntity
             return valoresCartaEAposta;
         }
 
-        public void Jogar(Jogador jogadorLocal, int numeroRodada, int idPartida)
+        public void Jogar(Jogador jogadorLocal, int idPartida)
         {
-            int[] valoresCartaEAposta = metodoDeJogar(jogadorLocal, numeroRodada, idPartida);
+            int[] valoresCartaEAposta = metodoDeJogar(jogadorLocal, idPartida);
             int indexCarta = valoresCartaEAposta[0];
             int indexAposta = valoresCartaEAposta[1];
 

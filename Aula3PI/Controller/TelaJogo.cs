@@ -53,39 +53,24 @@ namespace Aula3PI
         {
             VerificarVez informacoesSobreARodada = JogoTratado.VerificarVez(idPartida);
 
-            if (informacoesSobreARodada.statusPartida != "E") 
+            vezDoJogadorText.Text = Convert.ToString(informacoesSobreARodada.idJogadorDaVez);
+            statusPartidaText.Text = informacoesSobreARodada.statusPartida;
+            statusDaRodadaTxt.Text = informacoesSobreARodada.statusRodada;
+            lblPontuaçãoJogador1.Text = jogadorLocal.pontuacaoAtual.ToString();
+            lblPontuaçãoJogador2.Text = jogadores[1].pontuacaoAtual.ToString();
+            cartasJogadasList.Items.Clear();
+            /*
+            List<ExibirJogadas> x = JogoTratado.ExibirJogadas(idPartida);
+            if (x != null)
             {
-                vezDoJogadorText.Text = Convert.ToString(informacoesSobreARodada.idJogadorDaVez);
-                statusPartidaText.Text = informacoesSobreARodada.statusPartida;
-                statusDaRodadaTxt.Text = informacoesSobreARodada.statusRodada;
-                lblPontuaçãoJogador1.Text = jogadorLocal.pontuacaoAtual.ToString();
-                lblPontuaçãoJogador2.Text = jogadores[1].pontuacaoAtual.ToString();
-                cartasJogadasList.Items.Clear();
-                /*
-                List<ExibirJogadas> x = JogoTratado.ExibirJogadas(idPartida);
-                if (x != null)
+                foreach (var item in x)
                 {
-                    foreach (var item in x)
-                    {
-                        cartasJogadasList.Items.Add($"{item.idJogador} + {item.valorNaipe} + {item.naipe}");
-                    }
-                }
-                */
-                AtribuirCartasParaCadaJogador();
-                ListarCartas();
-            }
-            else
-            {
-                DialogResult mensagemBoxRetorno = MessageBox.Show("Tem certeza que deseja retonar ao Lobby?"
-                                              , "Aviso"
-                                              , MessageBoxButtons.YesNo
-                                              , MessageBoxIcon.Question);
-
-                if (mensagemBoxRetorno == DialogResult.Yes)
-                {
-                    this.Close();
+                    cartasJogadasList.Items.Add($"{item.idJogador} + {item.valorNaipe} + {item.naipe}");
                 }
             }
+            */
+            AtribuirCartasParaCadaJogador();
+            ListarCartas();
         }
 
         public List<Panel> CriacaoDePanelsCartas(List<Panel> panels, List<Carta> cartasDoJogadorAtual, int pointX, int pointY)
@@ -183,16 +168,32 @@ namespace Aula3PI
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int idJogadorDaVez = JogoTratado.VerificarVez(idPartida).idJogadorDaVez;
-            int numeroRodada = JogoTratado.VerificarVez(idPartida).numeroRodada;
-
-            bool eMinhaVez = idJogadorDaVez == jogadorLocal.idJogador;
-
-            if (eMinhaVez)
+            string statusPartida = JogoTratado.VerificarVez(idPartida).statusPartida;
+            if (statusPartida == "E" || statusPartida == "F") 
             {
-                jogadorLocal.Jogar(jogadorLocal, numeroRodada, idPartida);
+                timer1.Stop();
+                DialogResult mensagemBoxRetorno = MessageBox.Show("Tem certeza que deseja retonar ao Lobby?"
+                                              , "Aviso"
+                                              , MessageBoxButtons.OK
+                                              , MessageBoxIcon.Question);
+
+                if (mensagemBoxRetorno == DialogResult.OK)
+                {
+                    this.Close();
+                }
             }
-            atualizarTela();
+            else
+            {
+                int idJogadorDaVez = JogoTratado.VerificarVez(idPartida).idJogadorDaVez;
+
+                bool eMinhaVez = idJogadorDaVez == jogadorLocal.idJogador;
+
+                if (eMinhaVez)
+                {
+                    jogadorLocal.Jogar(jogadorLocal, idPartida);
+                }
+                atualizarTela();
+            }
         }
     }
 }

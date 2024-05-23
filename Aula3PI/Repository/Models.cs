@@ -48,6 +48,7 @@ namespace Aula3PI.Repository.Models
         public int idJogador { get; set; }
         public string nome { get; set; }
         public int pontuacaoAtual { get; set; }
+        public int qtdRodadasVencidas { get; set; }
     }
 
     public class ListarPartidasModel : IListarPartidas
