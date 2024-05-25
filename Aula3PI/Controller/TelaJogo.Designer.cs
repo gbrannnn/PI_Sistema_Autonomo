@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnSairPartida = new System.Windows.Forms.Button();
-            this.btnApostar = new System.Windows.Forms.Button();
-            this.lblCartaAposta = new System.Windows.Forms.Label();
-            this.txtIdAposta = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.vezDoJogadorLabel = new System.Windows.Forms.Label();
             this.vezDoJogadorText = new System.Windows.Forms.Label();
@@ -69,42 +66,6 @@
             this.btnSairPartida.Text = "Sair da Partida";
             this.btnSairPartida.UseVisualStyleBackColor = false;
             this.btnSairPartida.Click += new System.EventHandler(this.btnSairPartida_Click);
-            // 
-            // btnApostar
-            // 
-            this.btnApostar.BackColor = System.Drawing.Color.Transparent;
-            this.btnApostar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnApostar.FlatAppearance.BorderSize = 2;
-            this.btnApostar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnApostar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnApostar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApostar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApostar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnApostar.Location = new System.Drawing.Point(1296, 886);
-            this.btnApostar.Name = "btnApostar";
-            this.btnApostar.Size = new System.Drawing.Size(62, 25);
-            this.btnApostar.TabIndex = 13;
-            this.btnApostar.Text = "Apostar";
-            this.btnApostar.UseVisualStyleBackColor = false;
-            this.btnApostar.Click += new System.EventHandler(this.btnApostar_Click);
-            // 
-            // lblCartaAposta
-            // 
-            this.lblCartaAposta.AutoSize = true;
-            this.lblCartaAposta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCartaAposta.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCartaAposta.Location = new System.Drawing.Point(1257, 919);
-            this.lblCartaAposta.Name = "lblCartaAposta";
-            this.lblCartaAposta.Size = new System.Drawing.Size(97, 16);
-            this.lblCartaAposta.TabIndex = 16;
-            this.lblCartaAposta.Text = "Carta Aposta";
-            // 
-            // txtIdAposta
-            // 
-            this.txtIdAposta.Location = new System.Drawing.Point(1260, 889);
-            this.txtIdAposta.Name = "txtIdAposta";
-            this.txtIdAposta.Size = new System.Drawing.Size(29, 20);
-            this.txtIdAposta.TabIndex = 18;
             // 
             // label1
             // 
@@ -305,9 +266,6 @@
             this.Controls.Add(this.vezDoJogadorText);
             this.Controls.Add(this.vezDoJogadorLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtIdAposta);
-            this.Controls.Add(this.lblCartaAposta);
-            this.Controls.Add(this.btnApostar);
             this.Controls.Add(this.btnSairPartida);
             this.MaximizeBox = false;
             this.Name = "TelaJogo";
@@ -320,9 +278,6 @@
 
         #endregion
         private System.Windows.Forms.Button btnSairPartida;
-        private System.Windows.Forms.Button btnApostar;
-        private System.Windows.Forms.Label lblCartaAposta;
-        private System.Windows.Forms.TextBox txtIdAposta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label vezDoJogadorLabel;
         private System.Windows.Forms.Label vezDoJogadorText;

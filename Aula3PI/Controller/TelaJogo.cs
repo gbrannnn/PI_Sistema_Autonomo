@@ -155,15 +155,19 @@ namespace Aula3PI
                 this.Controls.Add(panel);
             }
         }
-
-        private void btnApostar_Click(object sender, EventArgs e)
+        private Jogador VerificarGanhador(List<Jogador> jogadores)
         {
+            List<int> pontuacaoJogadores = new List<int>();
+                
+            foreach(Jogador jogador in jogadores)
+            {
+                pontuacaoJogadores.Add(jogador.pontuacaoAtual); 
+            }
             
-            string valorAposta = Jogo.Apostar(jogadorLocal.idJogador, jogadorLocal.senha, Convert.ToInt32(txtIdAposta.Text));
-            lblCartaAposta.Text = valorAposta;
+            int maiorPontuacao = pontuacaoJogadores.Max();
+            Jogador vencedor = jogadores.Find(jogador => jogador.pontuacaoAtual == maiorPontuacao);
 
-            int idProximoJogador = JogoTratado.VerificarVez(this.idPartida).idJogadorDaVez;
-            this.jogadorDaVez = jogadores.Find(jogador => jogador.idJogador == idProximoJogador);
+            return vencedor;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -172,10 +176,14 @@ namespace Aula3PI
             if (statusPartida == "E" || statusPartida == "F") 
             {
                 timer1.Stop();
-                DialogResult mensagemBoxRetorno = MessageBox.Show("Tem certeza que deseja retonar ao Lobby?"
+
+                jogadores = JogoTratado.ListarJogadores(idPartida);
+                Jogador vencedor = VerificarGanhador(jogadores);
+
+                DialogResult mensagemBoxRetorno = MessageBox.Show($"O jogador vencedor é o {vencedor.nome} com {vencedor.pontuacaoAtual} pontos"
                                               , "Aviso"
                                               , MessageBoxButtons.OK
-                                              , MessageBoxIcon.Question);
+                                              , MessageBoxIcon.Information);
 
                 if (mensagemBoxRetorno == DialogResult.OK)
                 {
@@ -188,11 +196,11 @@ namespace Aula3PI
 
                 bool eMinhaVez = idJogadorDaVez == jogadorLocal.idJogador;
 
+                atualizarTela();
                 if (eMinhaVez)
                 {
                     jogadorLocal.Jogar(jogadorLocal, idPartida);
                 }
-                atualizarTela();
             }
         }
     }
