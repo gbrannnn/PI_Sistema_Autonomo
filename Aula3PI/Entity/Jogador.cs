@@ -28,13 +28,6 @@ namespace Aula3PI.JogadorEntity
         public bool Apostei { get; set; }
         public List<Carta> cartas { get; set; } = new List<Carta>();
 
-        private void VerificarQtdRodadasVencidas()
-        {
-            if (qtdRodadasVencidas == 0)
-            {
-                Apostei = false;
-            }
-        }
         private int[] metodoDeJogar(Jogador jogadorLocal, int idPartida)
         {
             int[] valoresCartaEAposta = { 0, 0 };
@@ -42,10 +35,11 @@ namespace Aula3PI.JogadorEntity
             int metadeQuantidadeCartas = quantidadeCartas / 2;
 
             Random random = new Random();
-            List<ExibirJogadas> historicoJogadas = JogoTratado.ExibirJogadas(idPartida);
-            int ultimaJogada = historicoJogadas.Count == 0 ? 0 : historicoJogadas.Count - 1;
 
-            VerificarQtdRodadasVencidas();
+            List<ExibirJogadas> historicoJogadas = JogoTratado.ExibirJogadas(idPartida);
+            int numeroRound = historicoJogadas.Last().numeroDoRound;
+            int ultimaJogada = historicoJogadas.Count == 0 ? 0 : historicoJogadas.Count - 1;
+            
 
             int posicaoCarta = 0;
 
@@ -53,7 +47,7 @@ namespace Aula3PI.JogadorEntity
             {
                 posicaoCarta = random.Next(1, metadeQuantidadeCartas);
                 valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
-                if (Apostei == false)
+                if (Apostei == false && numeroRound == 1)
                 {
                     posicaoCarta = random.Next(metadeQuantidadeCartas, metadeQuantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
@@ -63,7 +57,7 @@ namespace Aula3PI.JogadorEntity
             }
             else
             {
-                if (Apostei == false)
+                if (Apostei == false && numeroRound == 1)
                 {
                     posicaoCarta = random.Next(metadeQuantidadeCartas, metadeQuantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;

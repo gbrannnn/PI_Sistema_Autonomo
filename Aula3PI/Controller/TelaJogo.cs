@@ -155,6 +155,7 @@ namespace Aula3PI
                 this.Controls.Add(panel);
             }
         }
+
         private Jogador VerificarGanhador(List<Jogador> jogadores)
         {
             List<int> pontuacaoJogadores = new List<int>();
@@ -169,7 +170,7 @@ namespace Aula3PI
 
             return vencedor;
         }
-
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             string statusPartida = JogoTratado.VerificarVez(idPartida).statusPartida;
