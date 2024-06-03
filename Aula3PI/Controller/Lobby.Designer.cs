@@ -58,7 +58,7 @@
             this.txtIdJogador = new System.Windows.Forms.TextBox();
             this.lblIdJogador = new System.Windows.Forms.Label();
             this.btnIniciarPartida = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnIrParaPartida = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnListarPartidas
@@ -367,19 +367,19 @@
             this.btnIniciarPartida.UseVisualStyleBackColor = false;
             this.btnIniciarPartida.Click += new System.EventHandler(this.btnIniciarPartida_Click);
             // 
-            // button1
+            // btnIrParaPartida
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(531, 399);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 20);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "ir para a tela de jogo";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnIrParaPartida.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnIrParaPartida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIrParaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIrParaPartida.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnIrParaPartida.Location = new System.Drawing.Point(531, 399);
+            this.btnIrParaPartida.Name = "btnIrParaPartida";
+            this.btnIrParaPartida.Size = new System.Drawing.Size(182, 20);
+            this.btnIrParaPartida.TabIndex = 40;
+            this.btnIrParaPartida.Text = "ir para a tela de jogo";
+            this.btnIrParaPartida.UseVisualStyleBackColor = false;
+            this.btnIrParaPartida.Click += new System.EventHandler(this.btnIrParaPartida_Click);
             // 
             // frmLobby
             // 
@@ -387,7 +387,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(834, 511);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnIrParaPartida);
             this.Controls.Add(this.btnIniciarPartida);
             this.Controls.Add(this.lblSenhaJogador);
             this.Controls.Add(this.txtSenhaJogador);
@@ -460,7 +460,7 @@
         private System.Windows.Forms.TextBox txtIdJogador;
         private System.Windows.Forms.Label lblIdJogador;
         private System.Windows.Forms.Button btnIniciarPartida;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnIrParaPartida;
     }
 }
 

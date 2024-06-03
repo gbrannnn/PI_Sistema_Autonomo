@@ -55,10 +55,19 @@ namespace Aula3PI.Repository
 
         static public EntrarPartida EntrarPartida(int idPartida, string nome, string senha)
         {
-            string[] x = Jogo.EntrarPartida(idPartida, nome, senha).Split(',');
+            string[] x = Utils.tratarRetornoDoBanco(Jogo.EntrarPartida(idPartida, nome, senha));
             EntrarPartida TempModel = new EntrarPartida();
-            TempModel.idjogadorCriado = Convert.ToInt32(x[0]);
-            TempModel.senhaGerada = x[1];
+            if (x[0].Substring(0, 4) != "ERRO")
+            {
+                TempModel.idjogadorCriado = Convert.ToInt32(x[0]);
+                TempModel.senhaGerada = x[1];
+                return TempModel;
+            }
+
+            //arrumar essa merda 
+            TempModel.idjogadorCriado = 0;
+            TempModel.senhaGerada = x[0];
+
             return TempModel;
         }
 

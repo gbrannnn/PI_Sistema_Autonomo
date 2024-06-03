@@ -13,6 +13,7 @@ using utils;
 using Aula3PI.Repository;
 using Aula3PI.Repository.Models;
 using Aula3PI.JogadorEntity;
+using System.Data.Sql;
 
 
 namespace Aula3PI
@@ -142,14 +143,17 @@ namespace Aula3PI
 
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
+            int idPartida = 0;
+            if (txtIdPartidaEntrar.Text != "")
+            {
+                idPartida = Convert.ToInt32(txtIdPartidaEntrar.Text);
+            }
+            string nomeJogador = txtNomeJogador.Text;
+            string senhaPartida = txtSenhaPartida.Text;
 
-            int idPartida = Convert.ToInt32(txtIdPartidaEntrar.Text);
-
-
-            EntrarPartida infoJogadorCriado = JogoTratado.EntrarPartida(idPartida, txtNomeJogador.Text, txtSenhaPartida.Text);
-
-            //chage realised here, if it's not working check this function
-            if (infoJogadorCriado.ToString().Substring(0, 4) == "ERRO")
+            EntrarPartida infoJogadorCriado = JogoTratado.EntrarPartida(idPartida, nomeJogador, senhaPartida);
+            //Arrumar essa verificação de erro
+            if (infoJogadorCriado.senhaGerada.Substring(0, 4) == "ERRO")
             {
                 MessageBox.Show("Ocorreu um erro:\n"
                 + infoJogadorCriado.ToString().Substring(5),
@@ -158,6 +162,7 @@ namespace Aula3PI
                 MessageBoxIcon.Error);
                 return;
             }
+
 
             txtIdJogador.Text = Convert.ToString(infoJogadorCriado.idjogadorCriado);
             txtSenhaJogador.Text = infoJogadorCriado.senhaGerada;
@@ -169,10 +174,26 @@ namespace Aula3PI
 
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
-            
-            int idJogador = Convert.ToInt32(txtIdJogador.Text);
-            int idPartida = Convert.ToInt32(txtIdPartida.Text);
+            int idJogador = 0;
+            if(txtIdJogador.Text != "")
+            {
+                idJogador = Convert.ToInt32(txtIdJogador.Text);
+            }
             string senhaJogador = txtSenhaJogador.Text;
+
+            string retornoBanco = Jogo.IniciarPartida(idJogador, senhaJogador);
+
+            if (retornoBanco.ToString().Substring(0, 4) == "ERRO")
+            {
+                MessageBox.Show("Ocorreu um erro:\n"
+                + retornoBanco.ToString().Substring(5),
+                "Aviso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
+
+            int idPartida = Convert.ToInt32(txtIdPartida.Text);
 
             IniciarPartida jogadorSorteado = JogoTratado.IniciarPartida(idJogador, senhaJogador);
             
@@ -188,9 +209,19 @@ namespace Aula3PI
             telaJogo.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnIrParaPartida_Click(object sender, EventArgs e)
         {
-            int idPartida = Convert.ToInt32(txtIdPartida.Text);
+            if(txtIdPartidaEntrar.Text == "")
+            {
+                MessageBox.Show("Ocorreu um erro:\n"
+                + "Partida não existente, ou ID da partida não preenchido",
+                "Aviso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
+
+            int idPartida = Convert.ToInt32(txtIdPartidaEntrar.Text);
 
             List<Jogador> jogadores = JogoTratado.ListarJogadores(idPartida);
 

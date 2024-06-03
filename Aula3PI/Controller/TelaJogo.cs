@@ -36,15 +36,6 @@ namespace Aula3PI
 
             this.jogadores = jogadores;
 
-            if (jogadorDaVez == null)
-            {
-                int idJogadorDaVez = JogoTratado.VerificarVez(idPartida).idJogadorDaVez;
-                this.jogadorDaVez = jogadores.Find(jogador => jogador.idJogador == idJogadorDaVez);
-            }
-            else
-            {
-                this.jogadorDaVez = jogadorDaVez;
-            }
             InitializeComponent();
             atualizarTela();
         }
@@ -58,35 +49,51 @@ namespace Aula3PI
             statusDaRodadaTxt.Text = informacoesSobreARodada.statusRodada;
             lblPontuaçãoJogador1.Text = jogadorLocal.pontuacaoAtual.ToString();
             lblPontuaçãoJogador2.Text = jogadores[1].pontuacaoAtual.ToString();
-            cartasJogadasList.Items.Clear();
-            /*
-            List<ExibirJogadas> x = JogoTratado.ExibirJogadas(idPartida);
-            if (x != null)
-            {
-                foreach (var item in x)
-                {
-                    cartasJogadasList.Items.Add($"{item.idJogador} + {item.valorNaipe} + {item.naipe}");
-                }
-            }
-            */
+
             AtribuirCartasParaCadaJogador();
             ListarCartas();
         }
 
-        public List<Panel> CriacaoDePanelsCartas(List<Panel> panels, List<Carta> cartasDoJogadorAtual, int pointX, int pointY)
+        public List<Panel> CriacaoDePanelsCartas(List<Panel> panels, List<Carta> cartasDoJogadorAtual, int posicaoJogador, int pointX, int pointY)
         {
             Point point = new Point(pointX, pointY);
-            Size size = new Size(60, 100);
+            Size size = new Size(60, 80);
 
-            for (int i = 0; i < cartasDoJogadorAtual.Count; i++)
+            if(posicaoJogador % 2 == 0)
             {
-                Panel painelCarta = new Panel();
-                point.X = point.X + (size.Width + 10);
-                painelCarta.Location = point;
-                painelCarta.Size = size;
-                painelCarta.BackgroundImageLayout = ImageLayout.Stretch;
-                painelCarta.BackgroundImage = cartasDoJogadorAtual[i].background;
-                panels.Add(painelCarta);
+                for (int i = 0; i < cartasDoJogadorAtual.Count; i++)
+                {
+                    if (i == cartasDoJogadorAtual.Count / 2)
+                    {
+                        point.Y += size.Height + 10;
+                        point.X = pointX;
+                    }
+                    Panel painelCarta = new Panel();
+                    painelCarta.Location = point;
+                    point.X = point.X + (size.Width + 10);
+                    painelCarta.Size = size;
+                    painelCarta.BackgroundImageLayout = ImageLayout.Stretch;
+                    painelCarta.BackgroundImage = cartasDoJogadorAtual[i].background;
+                    panels.Add(painelCarta);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < cartasDoJogadorAtual.Count; i++)
+                {
+                    if (i == cartasDoJogadorAtual.Count / 2)
+                    {
+                        point.X += size.Width + 10;
+                        point.Y = pointY;
+                    }
+                    Panel painelCarta = new Panel();
+                    painelCarta.Location = point;
+                    point.Y = point.Y + (size.Height + 10);
+                    painelCarta.Size = size;
+                    painelCarta.BackgroundImageLayout = ImageLayout.Stretch;
+                    painelCarta.BackgroundImage = cartasDoJogadorAtual[i].background;
+                    panels.Add(painelCarta);
+                }
             }
             return panels;
         }
@@ -113,7 +120,7 @@ namespace Aula3PI
         private void CriarCartasDosJogadoresNaTela(List<Jogador> jogadores, int posicaoJogador, int pointX, int pointY) 
         {
             List<Carta> cartasDoJogadorAtual = jogadores[posicaoJogador].cartas;
-            CriacaoDePanelsCartas(panels, cartasDoJogadorAtual, pointX, pointY);
+            CriacaoDePanelsCartas(panels, cartasDoJogadorAtual, posicaoJogador, pointX, pointY);
             cartasDoJogadorAtual.Clear();
         }
 
@@ -132,19 +139,28 @@ namespace Aula3PI
             switch (jogadores.Count)
             {
                 case 2:
-                    CriarCartasDosJogadoresNaTela(jogadores, 0, 100, 200);
-                    CriarCartasDosJogadoresNaTela(jogadores, 1, 100, 400);
+                    lblJogador1.Text = this.jogadores[0].nome;
+                    CriarCartasDosJogadoresNaTela(jogadores, 0, 230, 750);
+                    lblJogador2.Text = this.jogadores[2].nome;
+                    CriarCartasDosJogadoresNaTela(jogadores, 1, 50, 180);
                     break;
                 case 3:
-                    CriarCartasDosJogadoresNaTela(jogadores, 0, 100, 200);
-                    CriarCartasDosJogadoresNaTela(jogadores, 1, 100, 400);
-                    CriarCartasDosJogadoresNaTela(jogadores, 2, 100, 600);
+                    lblJogador1.Text = this.jogadores[0].nome;
+                    CriarCartasDosJogadoresNaTela(jogadores, 0, 230, 750);
+                    lblJogador2.Text = this.jogadores[1].nome;
+                    CriarCartasDosJogadoresNaTela(jogadores, 1, 50, 180);
+                    lblJogador3.Text = this.jogadores[2].nome;
+                    CriarCartasDosJogadoresNaTela(jogadores, 2, 230, 50);
                     break;
                 case 4:
-                    CriarCartasDosJogadoresNaTela(jogadores, 0, 100, 200);
-                    CriarCartasDosJogadoresNaTela(jogadores, 1, 100, 400);
-                    CriarCartasDosJogadoresNaTela(jogadores, 2, 100, 600);
-                    CriarCartasDosJogadoresNaTela(jogadores, 3, 100, 800);
+                    lblJogador1.Text = this.jogadores[0].nome;
+                    CriarCartasDosJogadoresNaTela(jogadores, 0, 230, 750);
+                    lblJogador2.Text = this.jogadores[2].nome;
+                    CriarCartasDosJogadoresNaTela(jogadores, 1, 50, 180);
+                    lblJogador3.Text = this.jogadores[1].nome;
+                    CriarCartasDosJogadoresNaTela(jogadores, 2, 230, 50);
+                    lblJogador4.Text = this.jogadores[3].nome;
+                    CriarCartasDosJogadoresNaTela(jogadores, 3, 760, 180);
                     break;
                 default:
                     break;

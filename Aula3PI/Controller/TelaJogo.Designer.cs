@@ -38,15 +38,12 @@
             this.statusDaRodadaLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusDaRodadaTxt = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cartasJogadasList = new System.Windows.Forms.ListBox();
-            this.cartasJogadasLabel = new System.Windows.Forms.Label();
+            this.lblJogador1 = new System.Windows.Forms.Label();
+            this.lblJogador2 = new System.Windows.Forms.Label();
+            this.lblJogador4 = new System.Windows.Forms.Label();
             this.lblPontuaçãoJogador1 = new System.Windows.Forms.Label();
             this.lblPontuaçãoJogador2 = new System.Windows.Forms.Label();
+            this.lblJogador3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSairPartida
@@ -59,7 +56,7 @@
             this.btnSairPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSairPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSairPartida.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSairPartida.Location = new System.Drawing.Point(1786, 917);
+            this.btnSairPartida.Location = new System.Drawing.Point(1066, 917);
             this.btnSairPartida.Name = "btnSairPartida";
             this.btnSairPartida.Size = new System.Drawing.Size(106, 32);
             this.btnSairPartida.TabIndex = 1;
@@ -81,7 +78,7 @@
             this.vezDoJogadorLabel.AutoSize = true;
             this.vezDoJogadorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vezDoJogadorLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.vezDoJogadorLabel.Location = new System.Drawing.Point(1229, 102);
+            this.vezDoJogadorLabel.Location = new System.Drawing.Point(1032, 13);
             this.vezDoJogadorLabel.Name = "vezDoJogadorLabel";
             this.vezDoJogadorLabel.Size = new System.Drawing.Size(113, 16);
             this.vezDoJogadorLabel.TabIndex = 20;
@@ -92,7 +89,7 @@
             this.vezDoJogadorText.AutoSize = true;
             this.vezDoJogadorText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vezDoJogadorText.ForeColor = System.Drawing.SystemColors.Control;
-            this.vezDoJogadorText.Location = new System.Drawing.Point(1229, 129);
+            this.vezDoJogadorText.Location = new System.Drawing.Point(1032, 40);
             this.vezDoJogadorText.Name = "vezDoJogadorText";
             this.vezDoJogadorText.Size = new System.Drawing.Size(113, 16);
             this.vezDoJogadorText.TabIndex = 21;
@@ -103,7 +100,7 @@
             this.statusPartidaLabel.AutoSize = true;
             this.statusPartidaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusPartidaLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.statusPartidaLabel.Location = new System.Drawing.Point(1229, 195);
+            this.statusPartidaLabel.Location = new System.Drawing.Point(1032, 106);
             this.statusPartidaLabel.Name = "statusPartidaLabel";
             this.statusPartidaLabel.Size = new System.Drawing.Size(125, 16);
             this.statusPartidaLabel.TabIndex = 22;
@@ -114,7 +111,7 @@
             this.statusPartidaText.AutoSize = true;
             this.statusPartidaText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusPartidaText.ForeColor = System.Drawing.SystemColors.Control;
-            this.statusPartidaText.Location = new System.Drawing.Point(1229, 225);
+            this.statusPartidaText.Location = new System.Drawing.Point(1032, 136);
             this.statusPartidaText.Name = "statusPartidaText";
             this.statusPartidaText.Size = new System.Drawing.Size(125, 16);
             this.statusPartidaText.TabIndex = 23;
@@ -125,7 +122,7 @@
             this.statusDaRodadaLabel.AutoSize = true;
             this.statusDaRodadaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusDaRodadaLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.statusDaRodadaLabel.Location = new System.Drawing.Point(1229, 287);
+            this.statusDaRodadaLabel.Location = new System.Drawing.Point(1032, 198);
             this.statusDaRodadaLabel.Name = "statusDaRodadaLabel";
             this.statusDaRodadaLabel.Size = new System.Drawing.Size(126, 16);
             this.statusDaRodadaLabel.TabIndex = 24;
@@ -142,92 +139,48 @@
             this.statusDaRodadaTxt.AutoSize = true;
             this.statusDaRodadaTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusDaRodadaTxt.ForeColor = System.Drawing.SystemColors.Control;
-            this.statusDaRodadaTxt.Location = new System.Drawing.Point(1229, 318);
+            this.statusDaRodadaTxt.Location = new System.Drawing.Point(1032, 229);
             this.statusDaRodadaTxt.Name = "statusDaRodadaTxt";
             this.statusDaRodadaTxt.Size = new System.Drawing.Size(126, 16);
             this.statusDaRodadaTxt.TabIndex = 25;
             this.statusDaRodadaTxt.Text = "Status da rodada";
             // 
-            // label2
+            // lblJogador1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(100, 150);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 16);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Jogador 1";
+            this.lblJogador1.AutoSize = true;
+            this.lblJogador1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador1.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblJogador1.Location = new System.Drawing.Point(230, 730);
+            this.lblJogador1.Name = "lblJogador1";
+            this.lblJogador1.Size = new System.Drawing.Size(0, 16);
+            this.lblJogador1.TabIndex = 26;
             // 
-            // label3
+            // lblJogador2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(100, 350);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 16);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "jogador 2";
+            this.lblJogador2.AutoSize = true;
+            this.lblJogador2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador2.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblJogador2.Location = new System.Drawing.Point(50, 160);
+            this.lblJogador2.Name = "lblJogador2";
+            this.lblJogador2.Size = new System.Drawing.Size(0, 16);
+            this.lblJogador2.TabIndex = 27;
             // 
-            // label4
+            // lblJogador4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(100, 550);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 16);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Jogador 3";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(100, 550);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 16);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Jogador 3";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(100, 750);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 16);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "Jogador 4";
-            // 
-            // cartasJogadasList
-            // 
-            this.cartasJogadasList.FormattingEnabled = true;
-            this.cartasJogadasList.Location = new System.Drawing.Point(1388, 102);
-            this.cartasJogadasList.Name = "cartasJogadasList";
-            this.cartasJogadasList.Size = new System.Drawing.Size(120, 641);
-            this.cartasJogadasList.TabIndex = 31;
-            // 
-            // cartasJogadasLabel
-            // 
-            this.cartasJogadasLabel.AutoSize = true;
-            this.cartasJogadasLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cartasJogadasLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.cartasJogadasLabel.Location = new System.Drawing.Point(1385, 71);
-            this.cartasJogadasLabel.Name = "cartasJogadasLabel";
-            this.cartasJogadasLabel.Size = new System.Drawing.Size(117, 16);
-            this.cartasJogadasLabel.TabIndex = 32;
-            this.cartasJogadasLabel.Text = "Cartas Jogadas";
+            this.lblJogador4.AutoSize = true;
+            this.lblJogador4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador4.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblJogador4.Location = new System.Drawing.Point(760, 160);
+            this.lblJogador4.Name = "lblJogador4";
+            this.lblJogador4.Size = new System.Drawing.Size(0, 16);
+            this.lblJogador4.TabIndex = 30;
             // 
             // lblPontuaçãoJogador1
             // 
             this.lblPontuaçãoJogador1.AutoSize = true;
             this.lblPontuaçãoJogador1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPontuaçãoJogador1.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPontuaçãoJogador1.Location = new System.Drawing.Point(1229, 372);
+            this.lblPontuaçãoJogador1.Location = new System.Drawing.Point(1032, 283);
             this.lblPontuaçãoJogador1.Name = "lblPontuaçãoJogador1";
             this.lblPontuaçãoJogador1.Size = new System.Drawing.Size(81, 16);
             this.lblPontuaçãoJogador1.TabIndex = 33;
@@ -238,27 +191,34 @@
             this.lblPontuaçãoJogador2.AutoSize = true;
             this.lblPontuaçãoJogador2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPontuaçãoJogador2.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPontuaçãoJogador2.Location = new System.Drawing.Point(1229, 398);
+            this.lblPontuaçãoJogador2.Location = new System.Drawing.Point(1032, 309);
             this.lblPontuaçãoJogador2.Name = "lblPontuaçãoJogador2";
             this.lblPontuaçãoJogador2.Size = new System.Drawing.Size(81, 16);
             this.lblPontuaçãoJogador2.TabIndex = 34;
             this.lblPontuaçãoJogador2.Text = "Pontuação";
+            // 
+            // lblJogador3
+            // 
+            this.lblJogador3.AutoSize = true;
+            this.lblJogador3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogador3.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblJogador3.Location = new System.Drawing.Point(230, 30);
+            this.lblJogador3.Name = "lblJogador3";
+            this.lblJogador3.Size = new System.Drawing.Size(0, 16);
+            this.lblJogador3.TabIndex = 35;
             // 
             // TelaJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(1904, 961);
+            this.ClientSize = new System.Drawing.Size(1184, 961);
+            this.Controls.Add(this.lblJogador3);
             this.Controls.Add(this.lblPontuaçãoJogador2);
             this.Controls.Add(this.lblPontuaçãoJogador1);
-            this.Controls.Add(this.cartasJogadasLabel);
-            this.Controls.Add(this.cartasJogadasList);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblJogador4);
+            this.Controls.Add(this.lblJogador2);
+            this.Controls.Add(this.lblJogador1);
             this.Controls.Add(this.statusDaRodadaTxt);
             this.Controls.Add(this.statusDaRodadaLabel);
             this.Controls.Add(this.statusPartidaText);
@@ -286,14 +246,11 @@
         private System.Windows.Forms.Label statusDaRodadaLabel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label statusDaRodadaTxt;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListBox cartasJogadasList;
-        private System.Windows.Forms.Label cartasJogadasLabel;
+        private System.Windows.Forms.Label lblJogador1;
+        private System.Windows.Forms.Label lblJogador2;
+        private System.Windows.Forms.Label lblJogador4;
         private System.Windows.Forms.Label lblPontuaçãoJogador1;
         private System.Windows.Forms.Label lblPontuaçãoJogador2;
+        private System.Windows.Forms.Label lblJogador3;
     }
 }

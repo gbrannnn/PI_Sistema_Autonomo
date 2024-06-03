@@ -33,13 +33,17 @@ namespace Aula3PI.JogadorEntity
             int[] valoresCartaEAposta = { 0, 0 };
             int quantidadeCartas = jogadorLocal.cartas.Count;
             int metadeQuantidadeCartas = quantidadeCartas / 2;
+            int numeroRound = 0;
+            int ultimaJogada = 0;
 
             Random random = new Random();
 
             List<ExibirJogadas> historicoJogadas = JogoTratado.ExibirJogadas(idPartida);
-            int numeroRound = historicoJogadas.Last().numeroDoRound;
-            int ultimaJogada = historicoJogadas.Count == 0 ? 0 : historicoJogadas.Count - 1;
-            
+            if(historicoJogadas != null)
+            {
+                numeroRound = historicoJogadas.Last().numeroDoRound;
+                ultimaJogada = historicoJogadas.Count == 0 ? 0 : historicoJogadas.Count - 1;
+            }
 
             int posicaoCarta = 0;
 
