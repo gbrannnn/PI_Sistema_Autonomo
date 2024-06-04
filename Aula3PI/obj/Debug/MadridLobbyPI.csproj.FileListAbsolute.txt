@@ -80,3 +80,17 @@ C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\Aula3PI\obj\Debug
 C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\Aula3PI\obj\Debug\MadridLo.1B995410.Up2Date
 C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\Aula3PI\obj\Debug\Aula3PI.exe
 C:\Users\Gustavo Alves Vieira\source\repos\PI_Sistema_Autonomo\Aula3PI\obj\Debug\Aula3PI.pdb
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\bin\Debug\Aula3PI.exe.config
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\bin\Debug\Aula3PI.exe
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\bin\Debug\Aula3PI.pdb
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\bin\Debug\MagicTrickServer.dll
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\bin\Debug\MagicTrickServer.xml
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\obj\Debug\MadridLobbyPI.csproj.AssemblyReference.cache
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\obj\Debug\Aula3PI.frmLobby.resources
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\obj\Debug\Aula3PI.Properties.Resources.resources
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\obj\Debug\Aula3PI.TelaJogo.resources
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\obj\Debug\MadridLobbyPI.csproj.GenerateResource.cache
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\obj\Debug\MadridLobbyPI.csproj.CoreCompileInputs.cache
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\obj\Debug\MadridLobbyPI.csproj.CopyComplete
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\obj\Debug\Aula3PI.exe
+C:\Users\wwwgu\Documents\PI_Sistema_Autonomo\Aula3PI\obj\Debug\Aula3PI.pdb

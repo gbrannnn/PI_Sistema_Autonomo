@@ -72,7 +72,7 @@ namespace Aula3PI.JogadorEntity
                     }
                 if (historicoJogadas[ultimaJogada].valorNaipe < 3)
                 {
-                    for (int i = 1; i < metadeQuantidadeCartas; i++)
+                    for (int i = 0; i < metadeQuantidadeCartas; i++)
                     {
                         Carta cartaEscolhida = jogadorLocal.cartas[i];
                         if (cartaEscolhida.naipe == historicoJogadas[ultimaJogada].naipe)
@@ -100,6 +100,15 @@ namespace Aula3PI.JogadorEntity
                 }
                 else
                 {
+                    for (int i = 0; i < quantidadeCartas; i++)
+                    {
+                        Carta cartaEscolhida = jogadorLocal.cartas[i];
+                        if (cartaEscolhida.naipe == historicoJogadas[ultimaJogada].naipe)
+                        {
+                            valoresCartaEAposta[0] = cartaEscolhida.posicao;
+                            return valoresCartaEAposta;
+                        }
+                    }
                     posicaoCarta = random.Next(0, quantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                 }

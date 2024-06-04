@@ -15,6 +15,7 @@ using Aula3PI.JogadorEntity;
 using Aula3PI.Repository;
 using Aula3PI.Repository.Models;
 using System.Runtime.CompilerServices;
+using System.Threading;
 
 namespace Aula3PI
 {
@@ -70,15 +71,7 @@ namespace Aula3PI
 
             if (historicoJogadas.Count != 0)
             {
-                if (cartasJogadas.Count == quantidadeJogadores)
-                {
-                    foreach (Panel panel in cartasJogadas)
-                    {
-                        this.Controls.Remove(panel);
-                        panel.Dispose();
-                    }
-                    cartasJogadas.Clear();
-                }
+               
 
                 idJogador = historicoJogadas.Last().idJogador;
                 cartaJogadaNaipe = historicoJogadas.Last().naipe;
@@ -101,8 +94,23 @@ namespace Aula3PI
                 {
                     lblValorCartaJogadaJ4.Text = cartaJogadaValor.ToString();
                 }
-                cartasJogadas.Add(cartaJogada);
-                this.Controls.Add(cartaJogada);
+
+                if (cartasJogadas.Count == 0 || Convert.ToInt32(cartasJogadas.Last().Tag) != idJogador)
+                {
+                    cartasJogadas.Add(cartaJogada);
+                    this.Controls.Add(cartaJogada);
+                }
+
+                Thread.Sleep(3000);
+                if (cartasJogadas.Count == quantidadeJogadores)
+                {
+                    foreach (Panel panel in cartasJogadas)
+                    {
+                        this.Controls.Remove(panel);
+                        panel.Dispose();
+                    }
+                    cartasJogadas.Clear();
+                }
             }
         }
 
