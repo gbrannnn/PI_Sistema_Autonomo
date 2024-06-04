@@ -125,6 +125,26 @@
   <ItemGroup>
     <None Include="Resources\Cartas\Triângulo1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Cartas\Copas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Espadas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Estrela2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Lua2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Ouros2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Paus2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cartas\Triângulo2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

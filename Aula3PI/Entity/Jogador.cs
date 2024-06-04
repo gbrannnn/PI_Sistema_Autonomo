@@ -28,47 +28,48 @@ namespace Aula3PI.JogadorEntity
         public bool Apostei { get; set; }
         public List<Carta> cartas { get; set; } = new List<Carta>();
 
-        private int[] metodoDeJogar(Jogador jogadorLocal, int idPartida)
+        private int[] MetodoDeJogar(Jogador jogadorLocal, int idPartida, List<ExibirJogadas> historicoJogadas, int numeroRodada)
         {
             int[] valoresCartaEAposta = { 0, 0 };
             int quantidadeCartas = jogadorLocal.cartas.Count;
             int metadeQuantidadeCartas = quantidadeCartas / 2;
-            int numeroRound = 0;
+            int tamanhoHistoricoJogadas = 0;
             int ultimaJogada = 0;
 
             Random random = new Random();
 
-            List<ExibirJogadas> historicoJogadas = JogoTratado.ExibirJogadas(idPartida);
-            if(historicoJogadas != null)
+            if(numeroRodada == 1)
             {
-                numeroRound = historicoJogadas.Last().numeroDoRound;
-                ultimaJogada = historicoJogadas.Count == 0 ? 0 : historicoJogadas.Count - 1;
+                Apostei = false;
             }
+
+            tamanhoHistoricoJogadas = historicoJogadas.Count;
+            ultimaJogada = historicoJogadas.Count == 0 ? 0 : historicoJogadas.Count - 1;
 
             int posicaoCarta = 0;
 
-            if (historicoJogadas.Count == 0)
+            if (tamanhoHistoricoJogadas == 0)
             {
                 posicaoCarta = random.Next(1, metadeQuantidadeCartas);
                 valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
-                if (Apostei == false && numeroRound == 1)
+                if (Apostei == false && numeroRodada == 1)
                 {
                     posicaoCarta = random.Next(metadeQuantidadeCartas, metadeQuantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                     valoresCartaEAposta[1] = 4;
                     Apostei = true;
                 }
+                return valoresCartaEAposta;
             }
             else
             {
-                if (Apostei == false && numeroRound == 1)
-                {
-                    posicaoCarta = random.Next(metadeQuantidadeCartas, metadeQuantidadeCartas);
-                    valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
-                    valoresCartaEAposta[1] = 4;
-                    Apostei = true;
-                }
-
+                    if (Apostei == false && numeroRodada == 1)
+                    {
+                        posicaoCarta = random.Next(metadeQuantidadeCartas, metadeQuantidadeCartas);
+                        valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
+                        valoresCartaEAposta[1] = 4;
+                        Apostei = true;
+                    }
                 if (historicoJogadas[ultimaJogada].valorNaipe < 3)
                 {
                     for (int i = 1; i < metadeQuantidadeCartas; i++)
@@ -80,10 +81,8 @@ namespace Aula3PI.JogadorEntity
                             return valoresCartaEAposta;
                         }
                     }
-
                     posicaoCarta = random.Next(0, quantidadeCartas);
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
-
                 }
                 else if (historicoJogadas[ultimaJogada].valorNaipe >= 3 && historicoJogadas[ultimaJogada].valorNaipe <= 5)
                 {
@@ -105,19 +104,18 @@ namespace Aula3PI.JogadorEntity
                     valoresCartaEAposta[0] = jogadorLocal.cartas[posicaoCarta].posicao;
                 }
             }
-
             return valoresCartaEAposta;
         }
 
-        public void Jogar(Jogador jogadorLocal, int idPartida)
+        public void Jogar(Jogador jogadorLocal, int idPartida, List<ExibirJogadas> historicoJogadas, int numeroRodada)
         {
-            int[] valoresCartaEAposta = metodoDeJogar(jogadorLocal, idPartida);
+            int[] valoresCartaEAposta = MetodoDeJogar(jogadorLocal, idPartida, historicoJogadas, numeroRodada);
             int indexCarta = valoresCartaEAposta[0];
             int indexAposta = valoresCartaEAposta[1];
 
-            string erro = Jogo.Jogar(jogadorLocal.idJogador, jogadorLocal.senha, indexCarta);
-            string erro2 = Jogo.Apostar(jogadorLocal.idJogador, jogadorLocal.senha, indexAposta);
-        } 
 
+            Jogo.Jogar(jogadorLocal.idJogador, jogadorLocal.senha, indexCarta);
+            Jogo.Apostar(jogadorLocal.idJogador, jogadorLocal.senha, indexAposta);
+        } 
     }
 }

@@ -152,11 +152,11 @@ namespace Aula3PI
             string senhaPartida = txtSenhaPartida.Text;
 
             EntrarPartida infoJogadorCriado = JogoTratado.EntrarPartida(idPartida, nomeJogador, senhaPartida);
-            //Arrumar essa verificação de erro
-            if (infoJogadorCriado.senhaGerada.Substring(0, 4) == "ERRO")
+
+            if (infoJogadorCriado.erro.Substring(0, 4) == "ERRO")
             {
                 MessageBox.Show("Ocorreu um erro:\n"
-                + infoJogadorCriado.ToString().Substring(5),
+                + infoJogadorCriado.erro.ToString().Substring(5),
                 "Aviso",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
@@ -181,12 +181,12 @@ namespace Aula3PI
             }
             string senhaJogador = txtSenhaJogador.Text;
 
-            string retornoBanco = Jogo.IniciarPartida(idJogador, senhaJogador);
+            IniciarPartida jogadorSorteado = JogoTratado.IniciarPartida(idJogador, senhaJogador);
 
-            if (retornoBanco.ToString().Substring(0, 4) == "ERRO")
+            if (jogadorSorteado.erro.Substring(0, 4) == "ERRO")
             {
                 MessageBox.Show("Ocorreu um erro:\n"
-                + retornoBanco.ToString().Substring(5),
+                + jogadorSorteado.erro.Substring(5),
                 "Aviso",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
@@ -195,7 +195,6 @@ namespace Aula3PI
 
             int idPartida = Convert.ToInt32(txtIdPartida.Text);
 
-            IniciarPartida jogadorSorteado = JogoTratado.IniciarPartida(idJogador, senhaJogador);
             
             List<Jogador> jogadores = JogoTratado.ListarJogadores(idPartida);
 

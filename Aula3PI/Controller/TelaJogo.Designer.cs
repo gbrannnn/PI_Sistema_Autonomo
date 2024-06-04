@@ -44,6 +44,10 @@
             this.lblPontuaçãoJogador1 = new System.Windows.Forms.Label();
             this.lblPontuaçãoJogador2 = new System.Windows.Forms.Label();
             this.lblJogador3 = new System.Windows.Forms.Label();
+            this.lblValorCartaJogadaJ1 = new System.Windows.Forms.Label();
+            this.lblValorCartaJogadaJ2 = new System.Windows.Forms.Label();
+            this.lblValorCartaJogadaJ3 = new System.Windows.Forms.Label();
+            this.lblValorCartaJogadaJ4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSairPartida
@@ -207,12 +211,60 @@
             this.lblJogador3.Size = new System.Drawing.Size(0, 16);
             this.lblJogador3.TabIndex = 35;
             // 
+            // lblValorCartaJogadaJ1
+            // 
+            this.lblValorCartaJogadaJ1.AutoSize = true;
+            this.lblValorCartaJogadaJ1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorCartaJogadaJ1.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblValorCartaJogadaJ1.Location = new System.Drawing.Point(415, 600);
+            this.lblValorCartaJogadaJ1.Name = "lblValorCartaJogadaJ1";
+            this.lblValorCartaJogadaJ1.Size = new System.Drawing.Size(15, 16);
+            this.lblValorCartaJogadaJ1.TabIndex = 36;
+            this.lblValorCartaJogadaJ1.Text = "0";
+            // 
+            // lblValorCartaJogadaJ2
+            // 
+            this.lblValorCartaJogadaJ2.AutoSize = true;
+            this.lblValorCartaJogadaJ2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorCartaJogadaJ2.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblValorCartaJogadaJ2.Location = new System.Drawing.Point(280, 440);
+            this.lblValorCartaJogadaJ2.Name = "lblValorCartaJogadaJ2";
+            this.lblValorCartaJogadaJ2.Size = new System.Drawing.Size(15, 16);
+            this.lblValorCartaJogadaJ2.TabIndex = 37;
+            this.lblValorCartaJogadaJ2.Text = "0";
+            // 
+            // lblValorCartaJogadaJ3
+            // 
+            this.lblValorCartaJogadaJ3.AutoSize = true;
+            this.lblValorCartaJogadaJ3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorCartaJogadaJ3.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblValorCartaJogadaJ3.Location = new System.Drawing.Point(415, 280);
+            this.lblValorCartaJogadaJ3.Name = "lblValorCartaJogadaJ3";
+            this.lblValorCartaJogadaJ3.Size = new System.Drawing.Size(15, 16);
+            this.lblValorCartaJogadaJ3.TabIndex = 38;
+            this.lblValorCartaJogadaJ3.Text = "0";
+            // 
+            // lblValorCartaJogadaJ4
+            // 
+            this.lblValorCartaJogadaJ4.AutoSize = true;
+            this.lblValorCartaJogadaJ4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorCartaJogadaJ4.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblValorCartaJogadaJ4.Location = new System.Drawing.Point(580, 440);
+            this.lblValorCartaJogadaJ4.Name = "lblValorCartaJogadaJ4";
+            this.lblValorCartaJogadaJ4.Size = new System.Drawing.Size(15, 16);
+            this.lblValorCartaJogadaJ4.TabIndex = 39;
+            this.lblValorCartaJogadaJ4.Text = "0";
+            // 
             // TelaJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1184, 961);
+            this.Controls.Add(this.lblValorCartaJogadaJ4);
+            this.Controls.Add(this.lblValorCartaJogadaJ3);
+            this.Controls.Add(this.lblValorCartaJogadaJ2);
+            this.Controls.Add(this.lblValorCartaJogadaJ1);
             this.Controls.Add(this.lblJogador3);
             this.Controls.Add(this.lblPontuaçãoJogador2);
             this.Controls.Add(this.lblPontuaçãoJogador1);
@@ -252,5 +304,9 @@
         private System.Windows.Forms.Label lblPontuaçãoJogador1;
         private System.Windows.Forms.Label lblPontuaçãoJogador2;
         private System.Windows.Forms.Label lblJogador3;
+        private System.Windows.Forms.Label lblValorCartaJogadaJ1;
+        private System.Windows.Forms.Label lblValorCartaJogadaJ2;
+        private System.Windows.Forms.Label lblValorCartaJogadaJ3;
+        private System.Windows.Forms.Label lblValorCartaJogadaJ4;
     }
 }

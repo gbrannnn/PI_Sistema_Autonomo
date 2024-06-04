@@ -55,18 +55,17 @@ namespace Aula3PI.Repository
 
         static public EntrarPartida EntrarPartida(int idPartida, string nome, string senha)
         {
-            string[] x = Utils.tratarRetornoDoBanco(Jogo.EntrarPartida(idPartida, nome, senha));
+            string[] x = Jogo.EntrarPartida(idPartida, nome, senha).Split(',');
             EntrarPartida TempModel = new EntrarPartida();
-            if (x[0].Substring(0, 4) != "ERRO")
+            if (x[0].Substring(0, 4) == "ERRO")
             {
-                TempModel.idjogadorCriado = Convert.ToInt32(x[0]);
-                TempModel.senhaGerada = x[1];
+                TempModel.erro = x[0];
                 return TempModel;
             }
 
-            //arrumar essa merda 
-            TempModel.idjogadorCriado = 0;
-            TempModel.senhaGerada = x[0];
+            TempModel.erro = "sem erro";
+            TempModel.idjogadorCriado = Convert.ToInt32(x[0]);
+            TempModel.senhaGerada = x[1];
 
             return TempModel;
         }
@@ -75,6 +74,12 @@ namespace Aula3PI.Repository
         {
             string idPrimeiroJogador = Jogo.IniciarPartida(idJogador, senhaJogador);
             IniciarPartida TempModel = new IniciarPartida();
+            if (idPrimeiroJogador.Substring(0, 4) == "ERRO")
+            {
+                TempModel.erro = idPrimeiroJogador;
+                return TempModel;
+            }
+            TempModel.erro = "sem erro";
             TempModel.idPrimeiroJogador = Convert.ToInt32(idPrimeiroJogador);
             return TempModel;
         }
@@ -156,10 +161,15 @@ namespace Aula3PI.Repository
         {
             string[] jogadasDaRodada;
             List<ExibirJogadas> payload = new List<ExibirJogadas>();
-            string[] retornoDoBanco = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas(idPartida));
+            string[] retornoDoBanco = Utils.tratarRetornoDoBanco(Jogo.ExibirJogadas2(idPartida, numeroRodada));
 
             if (retornoDoBanco != null)
             {
+                if (retornoDoBanco[0].Substring(0, 4) == "ERRO")
+                {
+                    return null;
+                }
+
                 for (int i = 0; i < retornoDoBanco.Length; i++)
                 {
                     jogadasDaRodada = retornoDoBanco[i].Split(',');

@@ -21,13 +21,16 @@ namespace Aula3PI
 
     public partial class TelaJogo : Form
     {
+        public int numeroRodada;
         public int idPartida;
+        public int quantidadeJogadores;
         public Jogador jogadorLocal;
         public Jogador jogadorDaVez;
+        public VerificarVez informacoesSobreARodada;
         public List<Jogador> jogadores;
-        public List<Carta> cartasJogadas;
         public List<Panel> panels = new List<Panel>();
-        public int round;
+        public List<Panel> cartasJogadas = new List<Panel>();
+        public List<ExibirJogadas> historicoJogadas;
 
         public TelaJogo(int idPartida, Jogador jogadorLocal, Jogador jogadorDaVez, List<Jogador> jogadores)
         {
@@ -36,22 +39,71 @@ namespace Aula3PI
 
             this.jogadores = jogadores;
 
+            this.quantidadeJogadores = Utils.QuantidadeJogadores(jogadores);
             InitializeComponent();
             atualizarTela();
         }
-        //Revisitar essa lógica 
+
         public void atualizarTela()
         {
-            VerificarVez informacoesSobreARodada = JogoTratado.VerificarVez(idPartida);
+            informacoesSobreARodada = JogoTratado.VerificarVez(idPartida);
 
-            vezDoJogadorText.Text = Convert.ToString(informacoesSobreARodada.idJogadorDaVez);
+            vezDoJogadorText.Text = jogadores.Find(jogador => jogador.idJogador == informacoesSobreARodada.idJogadorDaVez).nome;
             statusPartidaText.Text = informacoesSobreARodada.statusPartida;
             statusDaRodadaTxt.Text = informacoesSobreARodada.statusRodada;
             lblPontuaçãoJogador1.Text = jogadorLocal.pontuacaoAtual.ToString();
             lblPontuaçãoJogador2.Text = jogadores[1].pontuacaoAtual.ToString();
+            numeroRodada = JogoTratado.VerificarVez(idPartida).numeroRodada;
 
+            MostrarCartaJogada();
             AtribuirCartasParaCadaJogador();
             ListarCartas();
+        }
+
+        public void MostrarCartaJogada()
+        {
+            int idJogador;
+            string cartaJogadaNaipe;
+            int cartaJogadaValor;
+
+            historicoJogadas = JogoTratado.ExibirJogadas(idPartida);
+
+            if (historicoJogadas.Count != 0)
+            {
+                if (cartasJogadas.Count == quantidadeJogadores)
+                {
+                    foreach (Panel panel in cartasJogadas)
+                    {
+                        this.Controls.Remove(panel);
+                        panel.Dispose();
+                    }
+                    cartasJogadas.Clear();
+                }
+
+                idJogador = historicoJogadas.Last().idJogador;
+                cartaJogadaNaipe = historicoJogadas.Last().naipe;
+                cartaJogadaValor = historicoJogadas.Last().valorNaipe;
+                Panel cartaJogada = Utils.VirarCarta(jogadores, idJogador, cartaJogadaNaipe, cartaJogadaValor);
+
+                if(Convert.ToInt32(cartaJogada.Tag) == jogadores[0].idJogador)
+                {
+                    lblValorCartaJogadaJ1.Text = cartaJogadaValor.ToString();
+                }
+                else if (Convert.ToInt32(cartaJogada.Tag) == jogadores[1].idJogador)
+                {
+                    lblValorCartaJogadaJ2.Text = cartaJogadaValor.ToString();
+                }
+                else if (Convert.ToInt32(cartaJogada.Tag) == jogadores[2].idJogador)
+                {
+                    lblValorCartaJogadaJ3.Text = cartaJogadaValor.ToString();
+                }
+                else
+                {
+                    lblValorCartaJogadaJ4.Text = cartaJogadaValor.ToString();
+                }
+                cartasJogadas.Add(cartaJogada);
+                this.Controls.Add(cartaJogada);
+            }
         }
 
         public List<Panel> CriacaoDePanelsCartas(List<Panel> panels, List<Carta> cartasDoJogadorAtual, int posicaoJogador, int pointX, int pointY)
@@ -141,7 +193,7 @@ namespace Aula3PI
                 case 2:
                     lblJogador1.Text = this.jogadores[0].nome;
                     CriarCartasDosJogadoresNaTela(jogadores, 0, 230, 750);
-                    lblJogador2.Text = this.jogadores[2].nome;
+                    lblJogador2.Text = this.jogadores[1].nome;
                     CriarCartasDosJogadoresNaTela(jogadores, 1, 50, 180);
                     break;
                 case 3:
@@ -155,9 +207,9 @@ namespace Aula3PI
                 case 4:
                     lblJogador1.Text = this.jogadores[0].nome;
                     CriarCartasDosJogadoresNaTela(jogadores, 0, 230, 750);
-                    lblJogador2.Text = this.jogadores[2].nome;
+                    lblJogador2.Text = this.jogadores[1].nome;
                     CriarCartasDosJogadoresNaTela(jogadores, 1, 50, 180);
-                    lblJogador3.Text = this.jogadores[1].nome;
+                    lblJogador3.Text = this.jogadores[2].nome;
                     CriarCartasDosJogadoresNaTela(jogadores, 2, 230, 50);
                     lblJogador4.Text = this.jogadores[3].nome;
                     CriarCartasDosJogadoresNaTela(jogadores, 3, 760, 180);
@@ -216,7 +268,7 @@ namespace Aula3PI
                 atualizarTela();
                 if (eMinhaVez)
                 {
-                    jogadorLocal.Jogar(jogadorLocal, idPartida);
+                    jogadorLocal.Jogar(jogadorLocal, idPartida, historicoJogadas, numeroRodada);
                 }
             }
         }

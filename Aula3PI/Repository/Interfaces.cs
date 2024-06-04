@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aula3PI.Repository.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
@@ -30,6 +31,7 @@ namespace Aula3PI.Repository.Interfaces
     {
         int idjogadorCriado { get; set; }
         string senhaGerada { get; set; }
+        string erro { get; set; }
     }
 
 
@@ -44,6 +46,7 @@ namespace Aula3PI.Repository.Interfaces
     interface IIniciarPartida
     {
         int idPrimeiroJogador { get; set; }
+        string erro { get; set; }
     }
 
     interface IJogar
